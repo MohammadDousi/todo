@@ -150,9 +150,9 @@ if (!isset($_SESSION['UserOk'])) {
 
                                 <p class="date_create_task red">
                                     <?php switch ($value->Status) {
-                                        case "10": ?> ویرایش تسک توسط ادمین، نیاز به طراحی دوباره
+                                        case "error": ?> وجود خطا ، نیاز به هماهنگی بیشتر
                                         <?php break;
-                                        case "20": ?> خطا در طراحی
+                                        case "edit": ?> نیاز به ویرایش
                                     <?php break;
                                     } ?>
                                 </p>
@@ -279,15 +279,6 @@ if (!isset($_SESSION['UserOk'])) {
                                         . " " . $value->Hour . ":" . $value->Min; ?>
                                 </p>
 
-                                <p class="date_create_task red">
-                                    <?php switch ($value->Status) {
-                                        case "10": ?> ویرایش تسک توسط ادمین، نیاز به طراحی دوباره
-                                        <?php break;
-                                        case "20": ?> خطا در طراحی
-                                    <?php break;
-                                    } ?>
-                                </p>
-
                             </div>
                         </div>
                     <?php }
@@ -410,15 +401,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday
                                         . " " . $value->Hour . ":" . $value->Min; ?>
                                 </p>
-
-                                <p class="date_create_task red">
-                                    <?php switch ($value->Status) {
-                                        case "10": ?> ویرایش تسک توسط ادمین، نیاز به طراحی دوباره
-                                        <?php break;
-                                        case "20": ?> خطا در طراحی
-                                    <?php break;
-                                    } ?>
-                                </p>
+                                
                             </div>
                         </div>
                     <?php }
