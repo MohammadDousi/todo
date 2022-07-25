@@ -50,26 +50,22 @@ item search box
 }
 
 .item_search_box {
-    width: auto;
-    height: auto;
-    display: flex;
-    background: var(--bluegray500);
-    color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgb(38 50 56 / 16%);
-    padding: 10px 20px;
-    margin: 0 1%;
     position: relative;
     float: right;
     font-size: 14px;
-    font-weight: 500;
+    color: #fff;
+    background: var(--blue300);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgb(38 50 56 / 16%);
+    padding: 5px 15px;
+    margin: 1% 1%;
     transition: var(--transition);
 }
 
 .item_search_box:hover {
     cursor: pointer;
-    margin: 0 1.5%;
-    background: var(--bluegray900);
+    margin: 1% 1.5%;
+    background: var(--blue500);
     box-shadow: 0 0 15px rgb(38 50 56 / 32%);
     transition: var(--transition);
 }
