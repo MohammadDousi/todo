@@ -87,12 +87,7 @@ if (!isset($_SESSION['UserOk'])) {
 
         temp = document.getElementById("SearchTagName").value;
         result = temp.replace(tag, "");
-
-        // temp = document.getElementById("SearchTagName").value;
         document.getElementById("SearchTagName").value = result +""+ tag;
-    }
-
-    function RemoveTagName(tag){
     }
 
     function GoToIndex() {
