@@ -112,7 +112,8 @@ if (!isset($_SESSION['UserOk'])) {
 <script>
     function GetTagName(tag) {
         temp = document.getElementById("SearchTagName").value;
-        document.getElementById("SearchTagName").value = temp + tag;
+        result = temp.replace(tag, "");
+        document.getElementById("SearchTagName").value = result +""+ tag;
     }
 
     function GoToIndex() {
