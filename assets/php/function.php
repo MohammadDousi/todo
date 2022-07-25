@@ -3,20 +3,21 @@ function Login()
 {
     global $con;
 
-    if (isset($_POST['Mobile'])) {
+    if (isset($_POST['Mobile']) && isset($_POST['Pass'])) {
 
         $mobile = $_POST['Mobile'];
+        $pass = $_POST['Pass'];
         if (preg_match("/^09[0-9]{9}$/", $mobile)) {
 
-            $query = 'SELECT * FROM dbuser WHERE Mobile = :mobile LIMIT 1';
+            $query = 'SELECT * FROM dbuser WHERE Mobile = :mobile AND `Password` = :pass LIMIT 1';
             $query = str_replace(";", "", $query);
             $stmt = $con->prepare($query);
             $stmt->bindParam(':mobile', $mobile, PDO::PARAM_STR);
+            $stmt->bindParam(':pass', $pass, PDO::PARAM_STR);
             $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row) {
-
                 $_SESSION['UserOk'] = ['id' => $row['Id'], 'name' => $row['Name']];
                 if ($_SESSION) {
                     header('location:index.php');

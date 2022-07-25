@@ -29,6 +29,7 @@
             </div>
 
             <input type="text" class="input_text input_login" name="Mobile" placeholder="09xx xx xxx xx" autocomplete="off" maxlength="11" />
+            <input type="password" class="input_text input_login" name="Pass" placeholder="* * * * *" autocomplete="off" />
             <input type="submit" name="Login" class="input_button active" value="ورود" />
 
         </form>
