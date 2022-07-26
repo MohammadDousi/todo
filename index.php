@@ -24,7 +24,9 @@ if (!isset($_SESSION['UserOk'])) {
             <div class="dropdown">
                 <div class="dropdown_content" id="myDropdown">
                     <form method="POST">
-                        <input class="sub_dropdown" type="submit" name="logout" onclick="<?php if (isset($_POST['logout']))logout(); ?>" value="خروج">
+                        <input class="sub_dropdown" type="submit" name="profile" onclick="<?php if (isset($_POST['profile'])) header('location:profile.php'); ?>" value="پروفایل">
+                        <input class="sub_dropdown" type="submit" name="logout" onclick="<?php if (isset($_POST['logout'])) logout(); ?>" value="خروج">
+
                     </form>
                 </div>
             </div>
@@ -401,7 +403,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday
                                         . " " . $value->Hour . ":" . $value->Min; ?>
                                 </p>
-                                
+
                             </div>
                         </div>
                     <?php }

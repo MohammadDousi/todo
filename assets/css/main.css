@@ -602,6 +602,7 @@ message
     font-weight: 500;
     transition: var(--transition);
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .dropdown_content .sub_dropdown:hover {
