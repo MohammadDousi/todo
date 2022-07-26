@@ -438,23 +438,6 @@ if (!isset($_SESSION['UserOk'])) {
     <div class="clear"></div>
 </body>
 
-<script src="script.js">
-    function Fun_profile_admin() {
-        document.getElementById("myDropdown").classList.toggle("show");
-        var back = document.getElementById("profile_admin");
-        // back.style.backgroundColor = "#bbe3ff";
-        // back.style.boxShadow = "0 0 10px rgba(29, 107, 242, 16%)";
-        // back.style.color = "#000";
-    }
-
-    window.onclick = function(e) {
-        if (!e.target.matches('.dropbtn')) {
-            var myDropdown = document.getElementById("myDropdown");
-            if (myDropdown.classList.contains('show')) {
-                myDropdown.classList.remove('show');
-            }
-        }
-    }
-</script>
+<script src="assets/js/script.js"></script>
 
 </html>
