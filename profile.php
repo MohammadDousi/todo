@@ -9,26 +9,20 @@ if (!isset($_SESSION['UserOk'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/insert.css">
-    <title>تسک جدید</title>
+    <title>پروفایل</title>
 </head>
 
 <body>
 
     <?php
-    if (isset($_POST['AddTask'])) {
-        if (AddTask()) { ?>
-            <script>
-                location.assign("index.php");
-            </script>
-    <?php }
-    } ?>
+    if (isset($_POST['AddTask'])) {} ?>
 
     <div class="content">
         <div class="content_new_task">
             <div class="box">
 
                 <form method="POST" action="">
-                    <p class="title">موضوع</p>
+                    <p class="title">نام</p>
                     <input name="TextTask" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
                     <p class="title">توضیحات</p>
@@ -53,25 +47,11 @@ if (!isset($_SESSION['UserOk'])) {
                 <p class="title">تگ افراد مرتبط</p>
                 <input name="SearchAddTag" id="SearchTagName" class="input_text" style="margin-bottom: 2%;" type="search" placeholder="..." />
 
-                <div class="box_item">
-                    <?php $item = SelectTag();
-                        if ($item) {
-                            foreach ($item as $ValueSearchTag) { ?>
-                                <div class="item_search_box" id="<?= $ValueSearchTag->TagName; ?>" onclick="GetTagName(this.id)">
-                                    <?= $ValueSearchTag->TagName ?>
-                                    <!-- <span class="close">&times;</span> -->
-                                </div>
-                    <?php }
-                        }
-                    ?>
-                </div>
-
-                <input class="input_button active" type="submit" name="AddTask" value="ثبت" />
+                <input class="input_button active" type="submit" name="edit" value="ویرایش" />
                 <input class="input_button back" type="button" onclick="GoToIndex()" name="back" value="بازگشت" />
 
                 </form>
             </div>
-
         </div>
         <div class="clear"></div>
     </div>
@@ -79,10 +59,5 @@ if (!isset($_SESSION['UserOk'])) {
     <div class="clear"></div>
 
 </body>
-
-
-
 <script src="assets/js/script.js"></script>
-
-
 </html>

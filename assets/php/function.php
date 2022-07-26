@@ -18,7 +18,10 @@ function Login()
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row) {
-                $_SESSION['UserOk'] = ['id' => $row['Id'], 'name' => $row['Name']];
+                $_SESSION['UserOk'] = ['id' => $row['Id'], 'fname' => $row['Fname'],'lname' => $row['Lname'],
+                                       'password' => $row['Password'],'tagname' => $row['TagName'],
+                                       'mobile' => $row['Mobile'],'avator' => $row['Avator'],
+                                       'lastseen' => $row['Lastseen'],'job' => $row['Job']];
                 if ($_SESSION) {
                     header('location:index.php');
                 }
