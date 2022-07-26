@@ -438,15 +438,7 @@ if (!isset($_SESSION['UserOk'])) {
     <div class="clear"></div>
 </body>
 
-<script>
-    function GoToInsert() {
-        location.assign("insert.php");
-    }
-
-    function GoToEdit(Id) {
-        location.assign("edit.php?Id=" + Id);
-    }
-
+<script src="script.js">
     function Fun_profile_admin() {
         document.getElementById("myDropdown").classList.toggle("show");
         var back = document.getElementById("profile_admin");

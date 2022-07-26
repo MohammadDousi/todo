@@ -109,17 +109,7 @@ if (!isset($_SESSION['UserOk'])) {
     <div class="clear"></div>
 </body>
 
-<script>
-    function GetTagName(tag) {
-        temp = document.getElementById("SearchTagName").value;
-        result = temp.replace(tag, "");
-        document.getElementById("SearchTagName").value = result +""+ tag;
-    }
-
-    function GoToIndex() {
-        location.assign("index.php");
-    }
-
+<script src="script.js">
     function usual() {
         document.getElementById("radio_usual").checked = true;
         var hid = document.getElementById("usual");
