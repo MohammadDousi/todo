@@ -18,10 +18,12 @@ function Login()
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row) {
-                $_SESSION['UserOk'] = ['id' => $row['Id'], 'fname' => $row['Fname'],'lname' => $row['Lname'],
-                                       'password' => $row['Password'],'tagname' => $row['TagName'],
-                                       'mobile' => $row['Mobile'],'avator' => $row['Avator'],
-                                       'lastseen' => $row['Lastseen'],'job' => $row['Job']];
+                $_SESSION['UserOk'] = [
+                    'id' => $row['Id'], 'fname' => $row['Fname'], 'lname' => $row['Lname'],
+                    'password' => $row['Password'], 'tagname' => $row['TagName'],
+                    'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
+                    'lastseen' => $row['Lastseen'], 'job' => $row['Job']
+                ];
                 if ($_SESSION) {
                     header('location:index.php');
                 }
@@ -297,5 +299,53 @@ function GetUser($Id)
         }
     } else {
         echo "ErrorGetId";
+    }
+}
+
+
+function ProfileEdit()
+{
+
+    global $con;
+
+    if (isset($_POST['name']) && isset($_POST['pass']) && isset($_POST['mobile'])) {
+
+
+        $query = 'UPDATE dbuser SET `Fname` = :name , `Password` = :pass , `Mobile` = :mobile WHERE Id = :id';
+        $query  = str_replace(";", "", $query);
+        $stmt = $con->prepare($query);
+        $stmt->bindparam(':name', $_POST['name'], PDO::PARAM_STR);
+        $stmt->bindparam(':pass', $_POST['pass'], PDO::PARAM_STR);
+        $stmt->bindparam(':mobile', $_POST['mobile'], PDO::PARAM_STR);
+        $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
+        $stmt->execute();
+
+        $status = $stmt->execute();
+
+        if ($status) {
+
+            $query = 'SELECT * FROM dbuser WHERE Id = :id LIMIT 1';
+            $query = str_replace(";", "", $query);
+            $stmt = $con->prepare($query);
+            $stmt->bindParam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_STR);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($row) {
+                $_SESSION['UserOk'] = [
+                    'id' => $row['Id'], 'fname' => $row['Fname'], 'lname' => $row['Lname'],
+                    'password' => $row['Password'], 'tagname' => $row['TagName'],
+                    'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
+                    'lastseen' => $row['Lastseen'], 'job' => $row['Job']
+                ];
+            }
+            return true;
+        } else {
+            $errors = $stmt->errorInfo();
+            echo "ErrorUpdateData";
+            return false;
+        }
+    } else {
+        echo "ErrorGetData";
     }
 }
