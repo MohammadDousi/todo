@@ -323,12 +323,12 @@ function ProfileEdit()
 
             $File_image = jdate("Ymj") . substr(uniqid(), 1) . jdate("His") . $Type;
             $File_image = str_replace(' ', '-', $File_image);
-            $path = $_SERVER['DOCUMENT_ROOT'] . "./assets/image/pic_user/" . $File_image;
+            $path = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/pic_user/" . $File_image;
 
             if ($File_image) {
                 if ($Type == ".jpg" || ".jpeg" || ".png") {
                     if (!file_exists($path)) {
-                        if ($Size < 1000000) {
+                        if ($Size < 3000000) {
                             move_uploaded_file($Temp, $path);
                         } else {
                             echo "image Size is up !";
