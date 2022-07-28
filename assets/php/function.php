@@ -315,6 +315,7 @@ function ProfileEdit()
         $Size = $_FILES['Image']['size'];
         $Temp = $_FILES['Image']['tmp_name'];
 
+        $upload_path = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/pic_user/";
 
         if ($Size == 0 || null || "") {
             $File_image = "defult_profile_user.jpg";
@@ -323,13 +324,17 @@ function ProfileEdit()
 
             $File_image = jdate("Ymj") . substr(uniqid(), 1) . jdate("His") . $Type;
             $File_image = str_replace(' ', '-', $File_image);
-            $path = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/pic_user/" . $File_image;
+            $path = $upload_path . $File_image;
 
             if ($File_image) {
                 if ($Type == ".jpg" || ".jpeg" || ".png") {
                     if (!file_exists($path)) {
-                        if ($Size < 3000000) {
+                        if ($Size < 2000000) {
                             move_uploaded_file($Temp, $path);
+
+                            $path = $upload_path . $_SESSION['UserOk']['avator'];
+                            unlink($path);
+                            
                         } else {
                             echo "image Size is up !";
                         }
@@ -379,7 +384,6 @@ function ProfileEdit()
             echo "ErrorUpdateData";
             return false;
         }
-
     } else {
         echo "ErrorGetData";
     }
