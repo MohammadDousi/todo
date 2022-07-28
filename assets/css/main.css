@@ -72,6 +72,16 @@ background
     box-shadow: 0 5px 8px rgba(38, 50, 56, 0.16);
 }
 
+.header_logo {
+    top: 0;
+    right: 0;
+    height: fit-content;
+    height: -webkit-fill-available;
+    position: absolute;
+    margin: 0.5% 2%;
+    float: right;
+}
+
 /* /////////////////////////////////// 
     content
 ///////////////////////////////////// */
@@ -666,6 +676,7 @@ message
     border-radius: 8px;
 
 }
+
 /* ///////////////////////////////////////////////
 message
 /////////////////////////////////////////////// */

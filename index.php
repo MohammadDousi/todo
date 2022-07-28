@@ -33,6 +33,8 @@ if (!isset($_SESSION['UserOk'])) {
 
         </div>
 
+        <img class="header_logo" src="/assets/image/logo/sepehrlogo.png">
+           
         <div class="clear"></div>
     </div>
 
