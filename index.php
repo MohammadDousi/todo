@@ -18,7 +18,7 @@ if (!isset($_SESSION['UserOk'])) {
         <div class="profile_admin" id="profile_admin">
             <button class="dropbtn" onclick="Fun_profile_admin()"></button>
             <img class="profile_admin_img" src="./assets/image/pic_user/u4.png">
-            <p><?php echo $_SESSION['UserOk']['fname'] . $_SESSION['UserOk']['lname'] ;?></p>
+            <p><?php echo $_SESSION['UserOk']['Name'] ;?></p>
             <img class="profile_admin_more" src="./assets/image/icon/ic_more.svg">
 
             <div class="dropdown">
@@ -108,7 +108,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">سازنده: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">سازنده: <?= $valueUser->Fname ?></p>
                                 <?php
                                         }
                                     }
@@ -122,7 +122,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">طراح: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">طراح: <?= $valueUser->Name ?></p>
                                 <?php
                                         }
                                     }
@@ -136,7 +136,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">ادیتور: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">ادیتور: <?= $valueUser->Name ?></p>
 
                                 <?php
                                         }
@@ -239,7 +239,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">سازنده: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">سازنده: <?= $valueUser->Name ?></p>
                                 <?php
                                         }
                                     }
@@ -253,7 +253,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">طراح: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">طراح: <?= $valueUser->Name ?></p>
                                 <?php
                                         }
                                     }
@@ -267,7 +267,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">ادیتور: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">ادیتور: <?= $valueUser->Name ?></p>
 
                                 <?php
                                         }
@@ -362,7 +362,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">سازنده: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">سازنده: <?= $valueUser->Name ?></p>
                                 <?php
                                         }
                                     }
@@ -376,7 +376,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">طراح: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">طراح: <?= $valueUser->Fname ?></p>
                                 <?php
                                         }
                                     }
@@ -390,7 +390,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">ادیتور: <?= $valueUser->Fname . $valueUser->Lname ?></p>
+                                            <p class="date_create_task">ادیتور: <?= $valueUser->Fname ?></p>
 
                                 <?php
                                         }

@@ -19,7 +19,7 @@ function Login()
 
             if ($row) {
                 $_SESSION['UserOk'] = [
-                    'id' => $row['Id'], 'fname' => $row['Fname'], 'lname' => $row['Lname'],
+                    'id' => $row['Id'], 'Name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
                     'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
                     'lastseen' => $row['Lastseen'], 'job' => $row['Job']
@@ -311,7 +311,7 @@ function ProfileEdit()
     if (isset($_POST['name']) && isset($_POST['pass']) && isset($_POST['mobile'])) {
 
 
-        $query = 'UPDATE dbuser SET `Fname` = :name , `Password` = :pass , `Mobile` = :mobile WHERE Id = :id';
+        $query = 'UPDATE dbuser SET `Name` = :name , `Password` = :pass , `Mobile` = :mobile WHERE Id = :id';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
         $stmt->bindparam(':name', $_POST['name'], PDO::PARAM_STR);
@@ -333,7 +333,7 @@ function ProfileEdit()
 
             if ($row) {
                 $_SESSION['UserOk'] = [
-                    'id' => $row['Id'], 'fname' => $row['Fname'], 'lname' => $row['Lname'],
+                    'id' => $row['Id'],'Name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
                     'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
                     'lastseen' => $row['Lastseen'], 'job' => $row['Job']

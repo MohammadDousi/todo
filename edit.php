@@ -44,19 +44,6 @@ if (!isset($_SESSION['UserOk'])) {
 
                                 <p class="title">توضیحات</p>
                                 <textarea name="Description" class="input_text input_textarea" type="text" placeholder="..." autocomplete="off"><?= $value->Description ?></textarea>
-                                <!-- <p>سطح فوریت</p>
-                                <div id="usual" onclick="usual()" class="inputGroupRadio">
-                                    <input id="radio_usual" name="usual" type="radio" />
-                                    <label for="radio_usual">عادی</label>
-                                </div>
-                                <div id="force" onclick="force()" class="inputGroupRadio" style="margin-right: 2%;">
-                                    <input id="radio_force" name="force" type="radio" />
-                                    <label for="radio_force">فوری</label>
-                                </div>
-                                <div id="vforce" onclick="vforce()" class="inputGroupRadio" style="margin-right: 2%;">
-                                    <input id="radio_vforce" name="vforce" type="radio" />
-                                    <label for="radio_vforce">فوق العاده</label>
-                                </div> -->
 
                                 <p class="title">وضعیت</p>
                                 <select class="combo_box" name="status" id="status">

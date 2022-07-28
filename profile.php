@@ -27,7 +27,7 @@ if (!isset($_SESSION['UserOk'])) {
                 <form method="POST" action="">
 
                     <p class="title">نام</p>
-                    <input name="name" value="<?php echo $_SESSION['UserOk']['fname'] . " " . $_SESSION['UserOk']['lname']; ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                    <input name="name" value="<?php echo $_SESSION['UserOk']['Name'] ; ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
                     <p class="title">رمز عبور</p>
                     <input name="pass" value="<?php echo $_SESSION['UserOk']['password']; ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
