@@ -17,8 +17,8 @@ if (!isset($_SESSION['UserOk'])) {
     <div class="header">
         <div class="profile_admin" id="profile_admin">
             <button class="dropbtn" onclick="Fun_profile_admin()"></button>
-            <img class="profile_admin_img" src="./assets/image/pic_user/u4.png">
-            <p><?php echo $_SESSION['UserOk']['Name'] ;?></p>
+            <img class="profile_admin_img" src="./assets/image/pic_user/"<?php $_SESSION['UserOk']['avator'] ;?>>
+            <p><?php echo $_SESSION['UserOk']['name'] ;?></p>
             <img class="profile_admin_more" src="./assets/image/icon/ic_more.svg">
 
             <div class="dropdown">
@@ -108,7 +108,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">سازنده: <?= $valueUser->Fname ?></p>
+                                            <p class="date_create_task">سازنده: <?= $valueUser->Name ?></p>
                                 <?php
                                         }
                                     }
@@ -390,7 +390,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">ادیتور: <?= $valueUser->Fname ?></p>
+                                            <p class="date_create_task">ادیتور: <?= $valueUser->Name ?></p>
 
                                 <?php
                                         }

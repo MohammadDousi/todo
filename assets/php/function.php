@@ -19,7 +19,7 @@ function Login()
 
             if ($row) {
                 $_SESSION['UserOk'] = [
-                    'id' => $row['Id'], 'Name' => $row['Name'],
+                    'id' => $row['Id'], 'name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
                     'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
                     'lastseen' => $row['Lastseen'], 'job' => $row['Job']
@@ -310,13 +310,47 @@ function ProfileEdit()
 
     if (isset($_POST['name']) && isset($_POST['pass']) && isset($_POST['mobile'])) {
 
+        $File_image = $_FILES['Image']['name'];
+        $Type = $_FILES['Image']['type'];
+        $Size = $_FILES['Image']['size'];
+        $Temp = $_FILES['Image']['tmp_name'];
 
-        $query = 'UPDATE dbuser SET `Name` = :name , `Password` = :pass , `Mobile` = :mobile WHERE Id = :id';
+
+        if ($Size == 0 || null || "") {
+            $File_image = "defult_profile_user.jpg";
+        } else {
+            $Type = str_replace("image/", ".", $Type);
+
+            $File_image = jdate("Ymj") . substr(uniqid(), 1) . jdate("His") . $Type;
+            $File_image = str_replace(' ', '-', $File_image);
+            $path = $_SERVER['DOCUMENT_ROOT'] . "./assets/image/pic_user/" . $File_image;
+
+            if ($File_image) {
+                if ($Type == ".jpg" || ".jpeg" || ".png") {
+                    if (!file_exists($path)) {
+                        if ($Size < 1000000) {
+                            move_uploaded_file($Temp, $path);
+                        } else {
+                            echo "image Size is up !";
+                        }
+                    } else {
+                        echo "image name is already. change name image";
+                    }
+                } else {
+                    echo "Type is not support.";
+                }
+            } else {
+                echo "name is empty.";
+            }
+        }
+
+        $query = 'UPDATE dbuser SET `Name` = :name , `Password` = :pass , `Mobile` = :mobile , `Avator` = :avator WHERE Id = :id';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
         $stmt->bindparam(':name', $_POST['name'], PDO::PARAM_STR);
         $stmt->bindparam(':pass', $_POST['pass'], PDO::PARAM_STR);
         $stmt->bindparam(':mobile', $_POST['mobile'], PDO::PARAM_STR);
+        $stmt->bindparam(':avator', $File_image, PDO::PARAM_STR);
         $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
         $stmt->execute();
 
@@ -333,7 +367,7 @@ function ProfileEdit()
 
             if ($row) {
                 $_SESSION['UserOk'] = [
-                    'id' => $row['Id'],'Name' => $row['Name'],
+                    'id' => $row['Id'], 'name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
                     'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
                     'lastseen' => $row['Lastseen'], 'job' => $row['Job']
@@ -345,6 +379,7 @@ function ProfileEdit()
             echo "ErrorUpdateData";
             return false;
         }
+
     } else {
         echo "ErrorGetData";
     }
