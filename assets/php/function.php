@@ -313,7 +313,7 @@ function ProfileEdit()
         $upload_path = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/pic_user/";
 
         if ($Size == 0 || null || "") {
-            $File_image = "defult_profile_user.jpg";
+            $File_image = $_SESSION['UserOk']['avator'];
         } else {
             $Type = str_replace("image/", ".", $Type);
 
@@ -326,10 +326,8 @@ function ProfileEdit()
                     if (!file_exists($path)) {
                         if ($Size < 2000000) {
                             move_uploaded_file($Temp, $path);
-
                             $path = $upload_path . $_SESSION['UserOk']['avator'];
                             unlink($path);
-                            
                         } else {
                             echo "image Size is up !";
                         }
