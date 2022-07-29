@@ -6,7 +6,8 @@ function Login()
     if (isset($_POST['Mobile']) && isset($_POST['Pass'])) {
 
         $mobile = $_POST['Mobile'];
-        $pass = $_POST['Pass'];
+        $pass = sha1($_POST['Pass']);
+
         if (preg_match("/^09[0-9]{9}$/", $mobile)) {
 
             $query = 'SELECT * FROM dbuser WHERE Mobile = :mobile AND `Password` = :pass LIMIT 1';
@@ -267,12 +268,6 @@ function SelectTag()
     $query = str_replace(";", "", $query);
     $stmt = $con->prepare($query);
     $stmt->execute();
-
-    // if ($result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
-    //     echo json_encode($result, JSON_UNESCAPED_UNICODE);
-    // } else {
-    //     echo "ErrorGetData";
-    // }
 
     if ($stmt) {
         return $stmt->fetchAll(PDO::FETCH_OBJ);

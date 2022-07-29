@@ -14,7 +14,7 @@
     <div class="bg"></div>
     <div class="bg bg2"></div>
 
-    <img src="assets/image/logo/sepehrlogo.png" class="logo" alt="sepehr.media">
+    <img src="assets/image/logo/sepehrlogo.png" class="logo_login" alt="sepehr.media">
     <?php
     if (isset($_POST['Login'])) {
         Login();
