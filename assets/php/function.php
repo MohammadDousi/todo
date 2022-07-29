@@ -348,7 +348,7 @@ function ProfileEdit()
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
         $stmt->bindparam(':name', $_POST['name'], PDO::PARAM_STR);
-        $stmt->bindparam(':pass', $_POST['pass'], PDO::PARAM_STR);
+        $stmt->bindparam(':pass', sha1($_POST['pass']), PDO::PARAM_STR);
         $stmt->bindparam(':mobile', $_POST['mobile'], PDO::PARAM_STR);
         $stmt->bindparam(':avator', $File_image, PDO::PARAM_STR);
         $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
