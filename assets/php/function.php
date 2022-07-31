@@ -22,10 +22,18 @@ function Login()
                 $_SESSION['UserOk'] = [
                     'id' => $row['Id'], 'name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
-                    'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
+                    'mobile' => $row['Mobile'], 'peruser' => $row['PerUser'], 'avator' => $row['Avator'],
                     'lastseen' => $row['Lastseen'], 'job' => $row['Job']
                 ];
                 if ($_SESSION) {
+
+                    $query = 'UPDATE dbuser SET `Lastseen` = :lastseen WHERE Id = :id';
+                    $query  = str_replace(";", "", $query);
+                    $stmt = $con->prepare($query);
+                    $stmt->bindparam(':lastseen', jdate('Y/n/j - H:i'), PDO::PARAM_STR);
+                    $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+
                     header('location:index.php');
                 }
             } else {
@@ -146,8 +154,6 @@ function AddTask()
 
         $tag = $_POST['SearchAddTag'];
 
-        $Date = jdate('Y/n/j - H:i');
-
         $query = 'INSERT INTO dbtask VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
@@ -234,6 +240,37 @@ function EditTask()
     }
 }
 
+function PerUser()
+{
+
+    global $con;
+
+    // $query = "SELECT COLUMN_NAME FROM `INFORMATION_SCHEMA`.`COLUMNS` Where `TABLE_SCHEMA` = 'plusmei2_dbtodo' AND TABLE_NAME = 'dbpermission' ";
+    // $query  = str_replace(";", "", $query);
+    // $stmt = $con->prepare($query);
+    // $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
+    // $stmt->execute();
+
+    // while ($row = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
+    //     $result[] = $row;
+    // }
+
+    // echo $result . "->" . 'COLUMN_NAME';
+
+
+    $query = 'SELECT * FROM `dbpermission` Where `Iduser` = :id';
+    $query  = str_replace(";", "", $query);
+    $stmt = $con->prepare($query);
+    $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
+    $stmt->execute();
+
+    if ($stmt) {
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    } else {
+        echo "Error";
+    }
+}
+
 function DelTask()
 {
 
@@ -296,7 +333,6 @@ function GetUser($Id)
         echo "ErrorGetId";
     }
 }
-
 
 function ProfileEdit()
 {

@@ -3,6 +3,7 @@ if (!isset($_SESSION['UserOk'])) {
     header('location:login.php');
 } ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,11 +48,20 @@ if (!isset($_SESSION['UserOk'])) {
 
                                 <p class="title">وضعیت</p>
                                 <select class="combo_box" name="status" id="status">
-                                    <option value="design">در حال طراحی</option>
-                                    <option value="videoedit">ادیت ویدئو</option>
-                                    <option value="accept">تایید تسک و پایان</option>
-                                    <option value="edit">ویرایش</option>
-                                    <option value="error">وجود خطا، نیاز به هماهنگی باهم</option>
+                                    <?php
+                                    $item = PerUser();
+                                    if ($item) {
+                                        foreach ($item as $value) { ?>
+                                            <?php if ($value->New) { ?><option value="new">جدید</option><?php } ?>
+                                            <?php if ($value->Design) { ?><option value="design">در حال طراحی</option><?php } ?>
+                                            <?php if ($value->VideoEdit) { ?><option value="videoedit">در حال تدوین</option><?php } ?>
+                                            <?php if ($value->ADesign) { ?><option value="adesign">اتمام طراحی</option><?php } ?>
+                                            <?php if ($value->AVideo) { ?><option value="avideo">اتمام تدوین</option><?php } ?>
+                                            <?php if ($value->Edit) { ?><option value="edit">ویرایش</option><?php } ?>
+                                            <?php if ($value->Error) { ?><option value="error">خطا ، نیاز به طراحی و یا تدوین مجدد</option><?php } ?>
+                                            <?php if ($value->End) { ?><option value="end">تمام شده</option><?php } ?>
+                                    <?php }
+                                    } ?>
                                 </select>
                     <?php }
                     }
