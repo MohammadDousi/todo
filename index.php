@@ -60,20 +60,18 @@ if (!isset($_SESSION['UserOk'])) {
                     foreach ($item as $value) { ?>
                         <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
                             <?php switch ($value->Status) {
-                                case 3:
-                                case "3": //new ?>
+                                case "3": ?>
                                     <div class="box_task_status status_create"></div>
                                 <?php
                                     break;
-                                case "9"://edit ?>
+                                case "9":
+                                ?>
                                     <div class="box_task_status status_edit"></div>
                                 <?php
                                     break;
                                 case "10": ?>
                                     <div class="box_task_status status_error"></div>
                             <?php
-                                    break;
-                                default:
                                     break;
                             } ?>
 
@@ -179,10 +177,6 @@ if (!isset($_SESSION['UserOk'])) {
                     foreach ($item as $value) { ?>
                         <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
                             <?php switch ($value->Status) {
-                                case "create": ?>
-                                    <div class="box_task_status status_create"></div>
-                                <?php
-                                    break;
                                 case "4": ?>
                                     <div class="box_task_status status_design"></div>
                                 <?php
@@ -191,21 +185,15 @@ if (!isset($_SESSION['UserOk'])) {
                                     <div class="box_task_status status_5"></div>
                                 <?php
                                     break;
-                                case "accept": ?>
+                                case "6": ?>
                                     <div class="box_task_status status_accept"></div>
                                 <?php
                                     break;
-                                case "edit": ?>
+                                case "7": ?>
                                     <div class="box_task_status status_edit"></div>
-                                <?php
-                                    break;
-                                case "error": ?>
-                                    <div class="box_task_status status_error"></div>
                             <?php
                                     break;
-                                default:
-                                    break;
-                            } ?>
+                            }             ?>
 
                             <div class="box_task_text">
                                 <p class="text_task"><?= $value->Text; ?></p>
@@ -302,31 +290,9 @@ if (!isset($_SESSION['UserOk'])) {
                     foreach ($item as $value) { ?>
                         <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
                             <?php switch ($value->Status) {
-                                case "create": ?>
-                                    <div class="box_task_status status_create"></div>
-                                <?php
-                                    break;
-                                case "4": ?>
-                                    <div class="box_task_status status_design"></div>
-                                <?php
-                                    break;
-                                case "5": ?>
-                                    <div class="box_task_status status_videoedit"></div>
-                                <?php
-                                    break;
-                                case "accept": ?>
+                                case "8": ?>
                                     <div class="box_task_status status_accept"></div>
-                                <?php
-                                    break;
-                                case "edit": ?>
-                                    <div class="box_task_status status_edit"></div>
-                                <?php
-                                    break;
-                                case "error": ?>
-                                    <div class="box_task_status status_error"></div>
                             <?php
-                                    break;
-                                default:
                                     break;
                             } ?>
 

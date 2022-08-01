@@ -69,7 +69,7 @@ function CountStartList()
 function CountDoingList()
 {
     global $con;
-    $CountDoingList = $con->query('SELECT COUNT(*) FROM dbtask Where `Status` = 4 OR `Status` = 5 OR `Status` = 6 OR `Status` = 7 ')->fetchColumn();
+    $CountDoingList = $con->query('SELECT COUNT(*) FROM dbtask Where `Status` = 4 OR `Status` = 5 OR `Status` = 6 OR `Status` = 7')->fetchColumn();
     echo $CountDoingList;
 }
 
@@ -89,7 +89,7 @@ function StartList()
 
     global $con;
 
-    $query = 'SELECT * FROM `dbtask` Where `Status` = "create"  OR `Status` = "edit" OR `Status` = "error" ORDER BY Id DESC';
+    $query = 'SELECT * FROM `dbtask` Where `Status` = 3 OR `Status` = 9 OR `Status` = 10 ORDER BY Id DESC';
     $query  = str_replace(";", "", $query);
     $stmt = $con->prepare($query);
     $stmt->execute();
@@ -106,7 +106,7 @@ function DoingList()
 
     global $con;
 
-    $query = 'SELECT * FROM `dbtask` Where `Status` = "design" OR `Status` = "videoedit" ORDER BY Id DESC';
+    $query = 'SELECT * FROM `dbtask` Where `Status` = 4 OR `Status` = 5 OR `Status` = 6 OR `Status` = 7 ORDER BY Id DESC';
     $query  = str_replace(";", "", $query);
     $stmt = $con->prepare($query);
     $stmt->execute();
@@ -123,7 +123,7 @@ function EndList()
 
     global $con;
 
-    $query = 'SELECT * FROM `dbtask` Where `Status` = "accept" ORDER BY Id DESC';
+    $query = 'SELECT * FROM `dbtask` Where `Status` = 8 ORDER BY Id DESC';
     $query  = str_replace(";", "", $query);
     $stmt = $con->prepare($query);
     $stmt->execute();
