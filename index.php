@@ -141,9 +141,9 @@ if (!isset($_SESSION['UserOk'])) {
 
                                 <p class="date_create_task red">
                                     <?php switch ($value->Status) {
-                                        case "error": ?> وجود خطا ، نیاز به هماهنگی بیشتر
+                                        case 10: ?> وجود خطا ، نیاز به هماهنگی بیشتر
                                         <?php break;
-                                        case "edit": ?> نیاز به ویرایش
+                                        case 9: ?> نیاز به ویرایش
                                     <?php break;
                                     } ?>
                                 </p>
@@ -333,7 +333,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = GetUser($id);
                                     if ($item) {
                                         foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">طراح: <?= $valueUser->Fname ?></p>
+                                            <p class="date_create_task">طراح: <?= $valueUser->Name ?></p>
                                 <?php
                                         }
                                     }

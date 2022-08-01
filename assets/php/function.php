@@ -157,7 +157,7 @@ function AddTask()
         $query = 'INSERT INTO dbtask VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
-        $stmt->execute([0, $text, $description, $_SESSION['UserOk']['id'], 0, 0,3, $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag]);
+        $stmt->execute([0, $text, $description, $_SESSION['UserOk']['id'], 0, 0, 3, $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag]);
 
         if ($stmt) {
             return true;
@@ -209,16 +209,19 @@ function EditTask()
         switch ($status) {
             case 4:
             case 6:
-                $query_designer = '`Designer` = :designer';
+                $query = 'UPDATE dbtask SET `Text` = :task , `Description` = :description ,
+                                `Designer` = :designer , `Status` = :status , `Tag` = :tag  WHERE Id = :id';
                 break;
             case 5:
             case 7:
-                $query_editor = '`Editor` = :editor';
+                $query = 'UPDATE dbtask SET `Text` = :task , `Description` = :description ,
+                                `Editor` = :editor , `Status` = :status , `Tag` = :tag  WHERE Id = :id';
+                break;
+            default:
+                $query = 'UPDATE dbtask SET `Text` = :task , `Description` = :description ,
+                             `Status` = :status , `Tag` = :tag  WHERE Id = :id';
                 break;
         }
-
-        $query = 'UPDATE dbtask SET `Text` = :task , `Description` = :description ,'
-            . $query_designer . $query_editor . ', `Status` = :status , `Tag` = :tag  WHERE Id = :id';
 
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
