@@ -14,29 +14,7 @@ if (!isset($_SESSION['UserOk'])) {
 
 <body>
 
-    <div class="header">
-        <div class="profile_admin" id="profile_admin">
-            <button class="dropbtn" onclick="Fun_profile_admin()"></button>
-            <img class="profile_admin_img" src="/assets/image/pic_user/<?php echo $_SESSION['UserOk']['avator']; ?>">
-            <p><?php echo $_SESSION['UserOk']['name']; ?></p>
-            <img class="profile_admin_more" src="./assets/image/icon/ic_more.svg">
-
-            <div class="dropdown">
-                <div class="dropdown_content" id="myDropdown">
-                    <form method="POST">
-                        <input class="sub_dropdown" type="submit" name="profile" onclick="<?php if (isset($_POST['profile'])) header('location:profile.php'); ?>" value="پروفایل">
-                        <input class="sub_dropdown" type="submit" name="logout" onclick="<?php if (isset($_POST['logout'])) logout(); ?>" value="خروج">
-
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-        <img class="header_logo" src="/assets/image/logo/sepehrlogo.png">
-
-        <div class="clear"></div>
-    </div>
+    <?php require_once "header.php"; ?>
 
     <div class="clear"></div>
     </div>
@@ -379,21 +357,9 @@ if (!isset($_SESSION['UserOk'])) {
 
         <div class="clear"></div>
     </div>
+    
+    <?php require_once "footer.php"; ?>
 
-    <div class="footer">
-        <p class="copyright">
-            طراحی با
-            <svg style="vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="17" height="17" xmlns:xusual="http://www.w3.org/1999/xusual" viewBox="0 0 48 48" version="1.1">
-                <g id="surface1">
-                    <path style=" fill:#f44336;" d="M 34 6 C 29.824219 6 26.148438 8.136719 24 11.371094 C 21.851563 8.136719 18.175781 6 14 6 C 7.371094 6 2 11.371094 2 18 C 2 29.941406 24 42 24 42 C 24 42 46 30.046875 46 18 C 46 11.371094 40.628906 6 34 6 ">
-                    </path>
-                </g>
-            </svg>
-            - محمد دوسی
-        </p>
-
-        <div class="clear"></div>
-    </div>
     <div class="clear"></div>
 </body>
 
