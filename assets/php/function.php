@@ -23,7 +23,7 @@ function Login()
                     'id' => $row['Id'], 'name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
                     'mobile' => $row['Mobile'], 'peruser' => $row['PerUser'], 'avator' => $row['Avator'],
-                    'lastseen' => $row['Lastseen'], 'job' => $row['Job']
+                    'lastseen' => $row['Lastseen']
                 ];
                 if ($_SESSION) {
 
@@ -202,25 +202,39 @@ function EditTask()
         $Id = $_GET['Id'];
         $text = $_POST['TextTask'];
         $Description = $_POST['Description'];
-        // if (isset($_POST['usual'])) {
-        //     $level = 0;
-        // } else if (isset($_POST['force'])) {
-        //     $level = 1;
-        // } else if (isset($_POST['vforce'])) {
-        //     $level = 2;
-        // }
 
         $status = $_POST['status'];
         $tag = $_POST['SearchAddTag'];
 
+        switch ($status) {
+            case 4:
+            case 6:
+                $query_designer = '`Designer` = :designer';
+                break;
+            case 5:
+            case 7:
+                $query_editor = '`Editor` = :editor';
+                break;
+        }
 
-        $query = 'UPDATE dbtask SET `Text` = :task , `Description` = :description , `Status` = :status , `Tag` = :tag  WHERE Id = :id';
+        $query = 'UPDATE dbtask SET `Text` = :task , `Description` = :description ,'
+            . $query_designer . $query_editor . ', `Status` = :status , `Tag` = :tag  WHERE Id = :id';
+
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
         $stmt->bindparam(':task', $text, PDO::PARAM_STR);
         $stmt->bindparam(':description', $Description, PDO::PARAM_STR);
+        switch ($status) {
+            case 4:
+            case 6:
+                $stmt->bindparam(':designer', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
+                break;
+            case 5:
+            case 7:
+                $stmt->bindparam(':editor', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
+                break;
+        }
         $stmt->bindparam(':status', $status, PDO::PARAM_STR);
-        // $stmt->bindparam(':level', $level, PDO::PARAM_INT);
         $stmt->bindparam(':tag', $tag, PDO::PARAM_STR);
         $stmt->bindparam(':id', $Id, PDO::PARAM_INT);
         $stmt->execute();
@@ -404,7 +418,7 @@ function ProfileEdit()
                     'id' => $row['Id'], 'name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
                     'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
-                    'lastseen' => $row['Lastseen'], 'job' => $row['Job']
+                    'lastseen' => $row['Lastseen']
                 ];
             }
             return true;

@@ -52,14 +52,14 @@ if (!isset($_SESSION['UserOk'])) {
                                     $item = PerUser();
                                     if ($item) {
                                         foreach ($item as $value) { ?>
-                                            <?php if ($value->New) { ?><option value="new">جدید</option><?php } ?>
-                                            <?php if ($value->Design) { ?><option value="design">در حال طراحی</option><?php } ?>
-                                            <?php if ($value->VideoEdit) { ?><option value="videoedit">در حال تدوین</option><?php } ?>
-                                            <?php if ($value->ADesign) { ?><option value="adesign">اتمام طراحی</option><?php } ?>
-                                            <?php if ($value->AVideo) { ?><option value="avideo">اتمام تدوین</option><?php } ?>
-                                            <?php if ($value->Edit) { ?><option value="edit">ویرایش</option><?php } ?>
-                                            <?php if ($value->Error) { ?><option value="error">خطا ، نیاز به طراحی و یا تدوین مجدد</option><?php } ?>
-                                            <?php if ($value->End) { ?><option value="end">تمام شده</option><?php } ?>
+                                            <?php if ($value->Design) { ?><option value="4">در حال طراحی</option><?php } ?>
+                                            <?php if ($value->VideoEdit) { ?><option value="5">در حال تدوین</option><?php } ?>
+                                            <?php if ($value->ADesign) { ?><option value="6">اتمام طراحی</option><?php } ?>
+                                            <?php if ($value->AVideo) { ?><option value="7">اتمام تدوین</option><?php } ?>
+                                            <?php if ($value->End) { ?><option value="8">تمام شده</option><?php } ?>
+                                            <?php if ($value->Edit) { ?><option value="9">ویرایش</option><?php } ?>
+                                            <?php if ($value->Error) { ?><option value="10">خطا ، نیاز به طراحی و یا تدوین مجدد</option><?php } ?>
+                                            
                                     <?php }
                                     } ?>
                                 </select>
