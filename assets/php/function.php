@@ -62,21 +62,21 @@ function logout()
 function CountStartList()
 {
     global $con;
-    $CountStartList = $con->query('SELECT COUNT(*) FROM dbtask Where `Status` = "create"  OR `Status` = "edit" OR `Status` = "error"')->fetchColumn();
+    $CountStartList = $con->query('SELECT COUNT(*) FROM dbtask Where `Status` = 3  OR `Status` = 9 OR `Status` = 10')->fetchColumn();
     echo $CountStartList;
 }
 
 function CountDoingList()
 {
     global $con;
-    $CountDoingList = $con->query('SELECT COUNT(*) FROM dbtask Where `Status` = "design" OR `Status` = "videoedit"')->fetchColumn();
+    $CountDoingList = $con->query('SELECT COUNT(*) FROM dbtask Where `Status` = 4 OR `Status` = 5 OR `Status` = 6 OR `Status` = 7 ')->fetchColumn();
     echo $CountDoingList;
 }
 
 function CountEndList()
 {
     global $con;
-    $CountEndList = $con->query('SELECT COUNT(*) FROM dbtask Where `Status` = "accept"')->fetchColumn();
+    $CountEndList = $con->query('SELECT COUNT(*) FROM dbtask Where `Status` = 8 ')->fetchColumn();
     echo $CountEndList;
 }
 
@@ -157,7 +157,7 @@ function AddTask()
         $query = 'INSERT INTO dbtask VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
-        $stmt->execute([0, $text, $description, $_SESSION['UserOk']['id'], 0, 0, "create", $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag]);
+        $stmt->execute([0, $text, $description, $_SESSION['UserOk']['id'], 0, 0,3, $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag]);
 
         if ($stmt) {
             return true;

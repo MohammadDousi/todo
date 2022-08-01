@@ -17,8 +17,8 @@ if (!isset($_SESSION['UserOk'])) {
     <div class="header">
         <div class="profile_admin" id="profile_admin">
             <button class="dropbtn" onclick="Fun_profile_admin()"></button>
-            <img class="profile_admin_img" src="/assets/image/pic_user/<?php echo $_SESSION['UserOk']['avator'] ;?>">
-            <p><?php echo $_SESSION['UserOk']['name'] ;?></p>
+            <img class="profile_admin_img" src="/assets/image/pic_user/<?php echo $_SESSION['UserOk']['avator']; ?>">
+            <p><?php echo $_SESSION['UserOk']['name']; ?></p>
             <img class="profile_admin_more" src="./assets/image/icon/ic_more.svg">
 
             <div class="dropdown">
@@ -34,7 +34,7 @@ if (!isset($_SESSION['UserOk'])) {
         </div>
 
         <img class="header_logo" src="/assets/image/logo/sepehrlogo.png">
-           
+
         <div class="clear"></div>
     </div>
 
@@ -60,27 +60,16 @@ if (!isset($_SESSION['UserOk'])) {
                     foreach ($item as $value) { ?>
                         <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
                             <?php switch ($value->Status) {
-                                case "create": ?>
+                                case 3:
+                                case "3": //new ?>
                                     <div class="box_task_status status_create"></div>
                                 <?php
                                     break;
-                                case "design": ?>
-                                    <div class="box_task_status status_design"></div>
-                                <?php
-                                    break;
-                                case "videoedit": ?>
-                                    <div class="box_task_status status_videoedit"></div>
-                                <?php
-                                    break;
-                                case "accept": ?>
-                                    <div class="box_task_status status_accept"></div>
-                                <?php
-                                    break;
-                                case "edit": ?>
+                                case "9"://edit ?>
                                     <div class="box_task_status status_edit"></div>
                                 <?php
                                     break;
-                                case "error": ?>
+                                case "10": ?>
                                     <div class="box_task_status status_error"></div>
                             <?php
                                     break;
@@ -194,12 +183,12 @@ if (!isset($_SESSION['UserOk'])) {
                                     <div class="box_task_status status_create"></div>
                                 <?php
                                     break;
-                                case "design": ?>
+                                case "4": ?>
                                     <div class="box_task_status status_design"></div>
                                 <?php
                                     break;
-                                case "videoedit": ?>
-                                    <div class="box_task_status status_videoedit"></div>
+                                case "5": ?>
+                                    <div class="box_task_status status_5"></div>
                                 <?php
                                     break;
                                 case "accept": ?>
@@ -317,11 +306,11 @@ if (!isset($_SESSION['UserOk'])) {
                                     <div class="box_task_status status_create"></div>
                                 <?php
                                     break;
-                                case "design": ?>
+                                case "4": ?>
                                     <div class="box_task_status status_design"></div>
                                 <?php
                                     break;
-                                case "videoedit": ?>
+                                case "5": ?>
                                     <div class="box_task_status status_videoedit"></div>
                                 <?php
                                     break;
