@@ -245,15 +245,16 @@ function EditTask()
         $status = $stmt->execute();
 
         if ($status) {
-            echo "UpdateData";
+            $errors = $stmt->errorInfo();
+            // echo "UpdateData";
             return true;
         } else {
             $errors = $stmt->errorInfo();
-            echo "ErrorUpdateData";
+            // echo "ErrorUpdateData";
             return false;
         }
     } else {
-        echo "ErrorGetData";
+        // echo "ErrorGetData";
     }
 }
 
@@ -261,20 +262,6 @@ function PerUser()
 {
 
     global $con;
-
-    // $query = "SELECT COLUMN_NAME FROM `INFORMATION_SCHEMA`.`COLUMNS` Where `TABLE_SCHEMA` = 'plusmei2_dbtodo' AND TABLE_NAME = 'dbpermission' ";
-    // $query  = str_replace(";", "", $query);
-    // $stmt = $con->prepare($query);
-    // $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
-    // $stmt->execute();
-
-    // while ($row = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
-    //     $result[] = $row;
-    // }
-
-    // echo $result . "->" . 'COLUMN_NAME';
-
-
     $query = 'SELECT * FROM `dbpermission` Where `Iduser` = :id';
     $query  = str_replace(";", "", $query);
     $stmt = $con->prepare($query);
