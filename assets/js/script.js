@@ -54,7 +54,7 @@ function usual() {
   document.getElementById("radio_usual").checked = true;
   var hid = document.getElementById("usual");
   hid.style.backgroundColor = "#2196F3";
-  hid.style.Color = "#fff";
+  hid.style.Color = "#ffffff";
   hid.style.boxShadow = "0 0 15px rgba(29, 107, 242, 16%)";
   hid.style.fontWeight = "bold";
 
@@ -75,7 +75,7 @@ function force() {
   document.getElementById("radio_force").checked = true;
   var hid = document.getElementById("force");
   hid.style.backgroundColor = "#2196F3";
-  hid.style.Color = "#fff";
+  hid.style.Color = "#ffffff";
   hid.style.boxShadow = "0 0 15px rgba(29, 107, 242, 16%)";
   hid.style.fontWeight = "bold";
 
@@ -96,7 +96,7 @@ function vforce() {
   document.getElementById("radio_vforce").checked = true;
   var hid = document.getElementById("vforce");
   hid.style.backgroundColor = "#2196F3";
-  hid.style.Color = "#fff";
+  hid.style.Color = "#ffffff";
   hid.style.boxShadow = "0 0 15px rgba(29, 107, 242, 16%)";
   hid.style.fontWeight = "bold";
 

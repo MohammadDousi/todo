@@ -47,13 +47,13 @@ if (!isset($_SESSION['UserOk'])) {
             </div>
             <div class="box">
                 <p class="title">تگ نیم</p>
-                <input name="TextTask" value="<?php echo $_SESSION['UserOk']['tagname']; ?>" class="input_text" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                <input value="<?php echo $_SESSION['UserOk']['tagname']; ?>" class="input_text" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
                 <p class="title">موبایل</p>
-                <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                <input value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
                 <p class="title">شغل</p>
-                <input name="TextTask" value="<?php echo $_SESSION['UserOk']['GroupUser']; ?>" class="input_text" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                <input  value="<?php echo $_SESSION['UserOk']['GroupUser']; ?>" class="input_text" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
                 <input class="input_button active" type="submit" name="edit" value="ویرایش" />
                 <input class="input_button back" type="button" onclick="GoToIndex()" name="back" value="بازگشت" />
 

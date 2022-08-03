@@ -421,3 +421,98 @@ function ProfileEdit()
         echo "ErrorGetData";
     }
 }
+
+
+//////////////////////////////////
+////     new user
+//////////////////////////////////
+
+function NewUser()
+{
+    global $con;
+
+    if (isset($_POST['name']) && isset($_POST['mobile']) && isset($_POST['pass']) && isset($_POST['tagname'])) {
+
+        if (preg_match("/^09[0-9]{9}$/", $_POST['mobile'])) {
+
+            $query = 'SELECT Mobile FROM `dbuser` WHERE `Mobile` = :mobile';
+            $query  = str_replace(";", "", $query);
+            $stmt = $con->prepare($query);
+            $stmt->bindValue(':mobile', $_POST['mobile'], PDO::PARAM_INT);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$row) {
+
+                $query = 'INSERT INTO dbuser VALUES (?,?,?,?,?,?,?,?,?)';
+                $query  = str_replace(";", "", $query);
+                $stmt = $con->prepare($query);
+                $stmt->execute([0, 0, $_POST['name'], $_POST['pass'], $_POST['tagname'], $_POST['mobile'], 0, jdate('Y/n/j - H:i'), 0]);
+
+                if ($stmt) {
+
+                    $query = 'SELECT Id FROM `dbuser` WHERE `Mobile` = :mobile';
+                    $query  = str_replace(";", "", $query);
+                    $stmt = $con->prepare($query);
+                    $stmt->bindValue(':mobile', $_POST['mobile'], PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if (isset($_POST['design'])) {
+                        $design = 1;
+                    } else {
+                        $design = 0;
+                    }
+
+                    if (isset($_POST['videoedit'])) {
+                        $videoedit = 1;
+                    } else {
+                        $videoedit = 0;
+                    }
+
+                    if (isset($_POST['adesign'])) {
+                        $adesign = 1;
+                    } else {
+                        $adesign = 0;
+                    }
+
+                    if (isset($_POST['avideoedit'])) {
+                        $avideoedit = 1;
+                    } else {
+                        $avideoedit = 0;
+                    }
+
+                    if (isset($_POST['end'])) {
+                        $end = 1;
+                    } else {
+                        $end = 0;
+                    }
+
+                    if (isset($_POST['edit'])) {
+                        $edit = 1;
+                    } else {
+                        $edit = 0;
+                    }
+
+                    if (isset($_POST['error'])) {
+                        $error = 1;
+                    } else {
+                        $error = 0;
+                    }
+
+                    $query = 'INSERT INTO dbpermission VALUES (?,?,?,?,?,?,?,?,?,?)';
+                    $query  = str_replace(";", "", $query);
+                    $stmt = $con->prepare($query);
+                    $stmt->execute([0, $row['Id'], 0, $design, $videoedit, $adesign, $avideoedit, $end, $edit, $error]);
+                } else {
+                    return false;
+                }
+            } else {
+            }
+        } else {
+        }
+    } else {
+        echo "ErrorGetData";
+    }
+}
