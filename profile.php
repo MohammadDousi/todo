@@ -42,7 +42,7 @@ if (!isset($_SESSION['UserOk'])) {
                     <input name="pass" value="<?php echo $_SESSION['UserOk']['password']; ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
                     <p class="title">آخرین بازدید</p>
-                    <input name="TextTask" value="<?php echo $_SESSION['UserOk']['lastseen']; ?>" class="input_text" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                    <input value="<?php echo $_SESSION['UserOk']['lastseen']; ?>" class="input_text" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
             </div>
             <div class="box">
@@ -50,7 +50,7 @@ if (!isset($_SESSION['UserOk'])) {
                 <input value="<?php echo $_SESSION['UserOk']['tagname']; ?>" class="input_text" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
                 <p class="title">موبایل</p>
-                <input value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
                 <p class="title">شغل</p>
                 <input  value="<?php echo $_SESSION['UserOk']['GroupUser']; ?>" class="input_text" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
