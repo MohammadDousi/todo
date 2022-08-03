@@ -33,12 +33,6 @@
             <input type="text" class="input_text input_login" name="Mobile" placeholder="09xx xx xxx xx" autocomplete="off" maxlength="11" />
             <input type="password" class="input_text input_login" name="Pass" placeholder="* * * * *" autocomplete="off" />
             <input type="submit" name="Login" class="input_button active" value="ورود" />
-
-
-
-
-            <input type="submit" name="newuser" class="input_button active" value="کاربر جدید" />
-            <?php if (isset($_POST['newuser'])) header('location:new_user.php'); ?>
         </form>
 
         <div class="clear"></div>
