@@ -16,9 +16,6 @@ if (!isset($_SESSION['UserOk'])) {
 
     <?php require_once "header.php"; ?>
 
-    <div class="clear"></div>
-    </div>
-
     <div class="content">
 
         <div class="content_task_list">
