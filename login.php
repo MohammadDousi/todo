@@ -11,16 +11,35 @@
 
 <body>
 
-    <div class="bg"></div>
-    <div class="bg bg2"></div>
 
-    <img src="assets/image/logo/sepehrlogo.png" class="logo_login" alt="sepehr.media">
+
+    <div class="content-login">
+
+        <div class="content-right-login"></div>
+        <div class="content-left-login">
+            <img src="assets/image/pic/login-pic.png" alt="#">
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- <div class="bg"></div>
+    <div class="bg bg2"></div> -->
+
+    <!-- <img src="assets/image/logo/sepehrlogo.png" class="logo_login" alt="sepehr.media"> -->
     <?php
-    if (isset($_POST['Login'])) {
-        Login();
-    } ?>
+    // if (isset($_POST['Login'])) {
+    //     Login(); } 
+    ?>
 
-    <div id="content_message" class="content_message"></div>
+    <!-- <div id="content_message" class="content_message"></div>
 
     <div class="content">
 
@@ -36,7 +55,7 @@
         </form>
 
         <div class="clear"></div>
-    </div>
+    </div> -->
 
 </body>
 
