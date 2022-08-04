@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/insert.css">
     <title>ثبت کاربر جدید</title>
+
 </head>
 
 <body>
@@ -17,6 +18,7 @@
     } ?>
 
     <div class="content">
+
         <div class="content_new_task">
             <div class="box">
 
@@ -45,7 +47,8 @@
             </div>
             <div class="box">
 
-                <p class="title">دسترسی ها<p>
+                <p class="title">دسترسی ها
+                <p>
                 <div class="inputGroupRadio">
                     <input name="design" type="checkbox" />
                     <label>طراحی</label>
