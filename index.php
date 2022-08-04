@@ -243,7 +243,7 @@ if (!isset($_SESSION['UserOk'])) {
                     <div id="dont_data" class="box_dont_data">
                         <img src="./assets/image/icon/ic_no_data.svg" />
                         <p>داده ای یافت نشد !</p>
-                        <span>تسک جدید ثبت کنید :)</span>
+                        <span>نه طراحی نه ادیت |:</span>
                     </div>
 
                 <?php } ?>
@@ -344,7 +344,7 @@ if (!isset($_SESSION['UserOk'])) {
                     <div id="dont_data" class="box_dont_data">
                         <img src="./assets/image/icon/ic_no_data.svg" />
                         <p>داده ای یافت نشد !</p>
-                        <span>تسک جدید ثبت کنید :)</span>
+                        <span>هنوز تسکی تموم نشده |:</span>
                     </div>
 
                 <?php } ?>
