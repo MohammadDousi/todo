@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/insert.css">
     <title>ثبت کاربر جدید</title>
-
 </head>
 
 <body>
