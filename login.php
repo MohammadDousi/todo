@@ -35,8 +35,8 @@
                     <img src="assets/image/icon/ic_eye.svg" id="eye-pass" onclick="ShowPass()" alt="">
                 </div>
 
-                <input type="submit" name="Login" class="input_button input-btn-login" value="ورود" />
-                <input type="submit" name="" class="input_button input-btn-login input-btn-strok-login" value="ورود با رمز عبور یک بار مصرف" />
+                <input type="submit" name="Login" class="input-btn-login" value="ورود" />
+                <input type="submit" name="" class="input-btn-login input-btn-strok-login" value="ورود با رمز عبور یک بار مصرف" />
             </form>
 
             <a href="https://sepehr.media/" class="copyright-login">گروه تولید محتوای سپهرمدیا</a>

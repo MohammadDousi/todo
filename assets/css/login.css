@@ -142,7 +142,7 @@ body {
   color: #ffffff;
   cursor: pointer;
   padding: 10px 0;
-  margin-top: 1rem;
+  margin: 1rem 0.2rem;
   float: right;
   transition: var(--transition);
   position: relative;
@@ -179,18 +179,3 @@ body {
   font-weight: bold;
   transition: var(--transition);
 }
-
-/* 
-.input-text {
-  font-size: 14px;
-  font-weight: normal;
-  text-align: right;
-  background: #ffffff;
-  border-radius: 8px;
-  border: 1px solid var(--NColor3);
-  cursor: text;
-  padding: 10px;
-  margin-bottom: 25px;
-  transition: var(--transition);
-  float: right;
-} */
