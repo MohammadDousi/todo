@@ -29,6 +29,22 @@ function onchangeImg() {
 }
 
 /////////////////////////////////////
+////// show password login
+//////////////////////////////////////
+
+function ShowPass() {
+  var eye = document.getElementById("eye-pass");
+  var pass = document.getElementById("pass");
+  eye.onclick = function() {
+      if (pass.type == 'text') {
+          pass.type = 'password';
+      } else {
+          pass.type = 'text';
+      }
+  }
+}
+
+/////////////////////////////////////
 ////// index page
 //////////////////////////////////////
 

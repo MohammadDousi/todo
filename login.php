@@ -24,17 +24,22 @@
             <form class="form-login" method="POST">
 
                 <p>تلفن همراه</p>
-                <input type="text" class="input_text input-text-login" name="Mobile" placeholder="مثال: 09301231121" autocomplete="off" required maxlength="11" />
+                <div class="input-text-login">
+                    <input type="text" name="Mobile" placeholder="مثال: 09301231121" autocomplete="off" required maxlength="11" />
+                    <img src="assets/image/icon/ic_mobile.svg" alt="">
+                </div>
 
                 <p>رمز عبور</p>
-                <input type="password" class="input_text input-text-login" name="Pass" placeholder="********" required autocomplete="off" />
+                <div class="input-text-login">
+                    <input type="password" name="Pass" id="pass" placeholder="********" required autocomplete="off" />
+                    <img src="assets/image/icon/ic_eye.svg" id="eye-pass" onclick="ShowPass()" alt="">
+                </div>
 
                 <input type="submit" name="Login" class="input_button input-btn-login" value="ورود" />
                 <input type="submit" name="" class="input_button input-btn-login input-btn-strok-login" value="ورود با رمز عبور یک بار مصرف" />
             </form>
 
-            <p class="copyright-login">گروه تولید محتوای سپهرمدیا</p>
-
+            <a href="https://sepehr.media/" class="copyright-login">گروه تولید محتوای سپهرمدیا</a>
         </div>
 
         <div class="content-left-login">
@@ -44,5 +49,8 @@
     </div>
 
 </body>
+
+
+<script src="assets/js/script.js"></script>
 
 </html>

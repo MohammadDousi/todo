@@ -28,7 +28,7 @@ body {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: right;
   border-radius: 30px 0px 0px 30px;
   animation: anim-pic 2s ease 0s 1 normal forwards;
 }
@@ -67,9 +67,10 @@ body {
     transform: translateX(0px);
   }
 }
+
 .text1-login {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 900;
   float: right;
 }
 
@@ -104,19 +105,35 @@ body {
 
 .input-text-login {
   width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  font-size: 14px;
-  font-weight: normal;
-  text-align: right;
   background: #ffffff;
   border-radius: 8px;
   border: 1px solid var(--NColor3);
   cursor: text;
   padding: 10px;
   margin-bottom: 25px;
-  transition: var(--transition);
   float: right;
+  display: flex;
+}
+
+.input-text-login>input {
+  width: 100%;
+  float: right;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: right;
+  background: #ffffff;
+  cursor: text;
+  transition: var(--transition);
+}
+
+.input-text-login>img {
+  width: 1rem;
+  float: left;
+}
+
+.input-text-login>img:hover {
+  background-image: url(assets/image/icon/ic_eye_red.svg);
+  cursor: pointer;
 }
 
 
