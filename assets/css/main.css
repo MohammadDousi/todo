@@ -17,6 +17,7 @@
     background: transparent;
     font-family: IRANSans;
     outline: 0;
+    color: var(--NColor2);
 }
 
 .clear {
@@ -29,7 +30,7 @@ body {
     overflow: auto;
     scrollbar-width: none;
     position: fixed;
-    background: var(--bluegray50);
+    background: var(--NColor4);
 }
 
 
