@@ -19,15 +19,20 @@
 
             <p class="text1-login">ورود به پنل کاربری</p>
 
+            <div class="lines">
+                <div class="line1"></div>
+                <div class="line1 line2"></div>
+            </div>
+
             <form class="form-login" method="POST">
 
                 <p>تلفن همراه</p>
-                <input type="text" class="input_text input-text-login" name="Mobile" placeholder="مثال: 09301231121" autocomplete="off" maxlength="11" />
+                <input type="text" class="input_text input-text-login" name="Mobile" placeholder="مثال: 09301231121" autocomplete="off" required maxlength="11" />
 
                 <p>رمز عبور</p>
-                <input type="password" class="input_text input-text-login" name="Pass" placeholder="******** " autocomplete="off" />
-             
-                
+                <input type="password" class="input_text input-text-login" name="Pass" placeholder="********" required autocomplete="off" />
+
+
 
                 <input type="submit" name="Login" class="input_button input-btn-login" value="ورود" />
                 <input type="submit" name="Login" class="input_button input-btn-login input-btn-strok-login" value="ورود با رمز عبور یک بار مصرف" />
