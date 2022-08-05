@@ -53,7 +53,7 @@ body {
   background: var(--NColor1);
   border-radius: 8rem;
   float: right;
-  margin: 8px 0 25px 0 ;
+  margin: 8px 0 25px 0;
 }
 
 .line2 {
@@ -95,6 +95,7 @@ body {
   color: #ffffff;
   cursor: pointer;
   padding: 10px 0;
+  margin-top: 1rem;
   float: right;
   transition: var(--transition);
   position: relative;
@@ -104,6 +105,22 @@ body {
   background-color: transparent;
   border: 1px solid var(--NColor1);
   color: var(--NColor1);
+}
+
+
+.copyright-login {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5%;
+  color: var(--NColor3);
+  transition: var(--transition);
+}
+
+.copyright-login:hover {
+  color: var(--NColor2);
+  cursor: pointer;
+  transition: var(--transition);
 }
 
 /* 

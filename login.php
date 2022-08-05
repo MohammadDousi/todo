@@ -10,9 +10,6 @@
 </head>
 
 <body>
-
-
-
     <div class="content-login">
 
         <div class="content-right-login">
@@ -32,12 +29,11 @@
                 <p>رمز عبور</p>
                 <input type="password" class="input_text input-text-login" name="Pass" placeholder="********" required autocomplete="off" />
 
-
-
                 <input type="submit" name="Login" class="input_button input-btn-login" value="ورود" />
-                <input type="submit" name="Login" class="input_button input-btn-login input-btn-strok-login" value="ورود با رمز عبور یک بار مصرف" />
+                <input type="submit" name="" class="input_button input-btn-login input-btn-strok-login" value="ورود با رمز عبور یک بار مصرف" />
             </form>
 
+            <p class="copyright-login">گروه تولید محتوای سپهرمدیا</p>
 
         </div>
 
@@ -46,41 +42,6 @@
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-    <!-- <div class="bg"></div>
-    <div class="bg bg2"></div> -->
-
-    <!-- <img src="assets/image/logo/sepehrlogo.png" class="logo_login" alt="sepehr.media"> -->
-    <?php
-    // if (isset($_POST['Login'])) {
-    //     Login(); } 
-    ?>
-
-    <!-- <div id="content_message" class="content_message"></div>
-
-    <div class="content">
-
-        <form class="form" method="POST">
-            <div>
-                <p class="text_welcome1">از دیدار دوباره شما خوش حالیم :)</p>
-                <p class="text_welcome2">به سیستم مدیریت محتوا سپهر مدیا خوش آمدید</p>
-            </div>
-
-            <input type="text" class="input_text input_login" name="Mobile" placeholder="09xx xx xxx xx" autocomplete="off" maxlength="11" />
-            <input type="password" class="input_text input_login" name="Pass" placeholder="* * * * *" autocomplete="off" />
-            <input type="submit" name="Login" class="input_button active" value="ورود" />
-        </form>
-
-        <div class="clear"></div>
-    </div> -->
 
 </body>
 
