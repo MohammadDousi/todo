@@ -129,13 +129,8 @@ body {
 .input-text-login>img {
   width: 1rem;
   float: left;
-}
-
-.input-text-login>img:hover {
-  background-image: url(assets/image/icon/ic_eye_red.svg);
   cursor: pointer;
 }
-
 
 .input-btn-login {
   width: 48%;

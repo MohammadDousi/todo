@@ -36,10 +36,12 @@ function ShowPass() {
   var eye = document.getElementById("eye-pass");
   var pass = document.getElementById("pass");
   eye.onclick = function() {
-      if (pass.type == 'text') {
+      if (pass.type === 'text') {
           pass.type = 'password';
+          eye.src = "assets/image/icon/ic_eye.svg"
       } else {
           pass.type = 'text';
+          eye.src = "assets/image/icon/ic_eye_red.svg"
       }
   }
 }
