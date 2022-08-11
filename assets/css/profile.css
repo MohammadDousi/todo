@@ -86,26 +86,6 @@
 input text and btn
 ///////////////////////////////////// */
 
-.input-text-profile {
-    width: 100%;
-    background: #ffffff;
-    border-radius: 8px;
-    border: 1px solid var(--NColor3);
-    cursor: text;
-    padding: 10px;
-    margin-bottom: 25px;
-    float: right;
-    font-size: 14px;
-    font-weight: normal;
-    text-align: right;
-    transition: var(--transition);
-    direction: ltr;
-}
-
-.margin0 {
-    margin: 0;
-}
-
 .input-edit-profile {
     border-radius: 8px;
     font-size: 14px;
@@ -126,7 +106,46 @@ input text and btn
     font-weight: bold;
 }
 
-.input-btn-profile {
+/* /////////////////////////////////// 
+  input text and btn
+///////////////////////////////////// */
+
+.input-text-login {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid var(--NColor3);
+    cursor: text;
+    padding: 10px;
+    margin-bottom: 25px;
+    float: right;
+    display: flex;
+}
+
+.input-text-login>p {
+    width: 100%;
+    float: right;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: right;
+    background: #ffffff;
+    cursor: text;
+    transition: var(--transition);
+    direction: ltr;
+}
+
+.input-text-login>img {
+    width: 1rem;
+    float: left;
+    cursor: pointer;
+}
+
+
+.margin0 {
+    margin: 0;
+}
+
+.input-btn-login {
     width: 48%;
     border-radius: 8px;
     font-size: 14px;
@@ -142,13 +161,14 @@ input text and btn
     position: relative;
 }
 
-.input-btn-strok-profile {
+.input-btn-strok-login {
     background-color: transparent;
+    border: 1px solid var(--NColor1);
     color: var(--NColor1);
 }
 
-.input-btn-strok-profile:hover {
+.input-btn-strok-login:hover {
     background-color: var(--NColor1);
-    border: 1px solid var(--NColor1);
-    color: var(--NColor1);
+    border: 0px;
+    color: #ffffff;
 }

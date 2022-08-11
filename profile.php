@@ -32,7 +32,6 @@
 
             <div class="info-left">
 
-
                 <div style="width: 100%;">
                     <div style="float: right;">
                         <p class="text1-login">اطلاعات کاربری</p>
@@ -41,35 +40,49 @@
                             <div class="line1 line2"></div>
                         </div>
                     </div>
-
                     <input type="submit" name="" class="input-edit-profile" style="float: left;" value="ویرایش اطلاعات" />
-
                 </div>
 
 
                 <div class="info-row">
                     <div>
                         <p class="title">نام</p>
-                        <span class="input-text-profile"><?php echo $_SESSION['UserOk']['name']; ?></span>
+                        <div class="input-text-login">
+                            <p class="input-text-profile"><?php echo $_SESSION['UserOk']['name']; ?></p>
+                            <img src="assets/image/icon/ic_user.svg" alt="#">
+                        </div>
                     </div>
                     <div>
                         <p class="title">رمز عبور</p>
-                        <span class="input-text-profile"><?php echo $_SESSION['UserOk']['password']; ?></span>
+                        <div class="input-text-login">
+                            <p class="input-text-profile"><?php echo $_SESSION['UserOk']['password']; ?></p>
+                            <img src="assets/image/icon/ic_lock.svg" alt="#">
+                        </div>
                     </div>
                     <div>
                         <p class="title">موبایل</p>
-                        <p class="input-text-profile"><?php echo GroupDigi_Mobile($_SESSION['UserOk']['mobile']); ?></p>
+                        <div class="input-text-login">
+                            <p class="input-text-profile"><?php echo GroupDigi_Mobile($_SESSION['UserOk']['mobile']); ?></p>
+                            <img src="assets/image/icon/ic_mobile.svg" alt="#">
+                        </div>
                     </div>
                 </div>
 
                 <div class="info-row">
                     <div>
                         <p class="title">آخرین بازدید</p>
-                        <span class="input-text-profile margin0"><?php echo $_SESSION['UserOk']['lastseen']; ?></span>
+                        <div class="input-text-login margin0">
+                            <p class="input-text-profile"><?php echo $_SESSION['UserOk']['lastseen']; ?></p>
+                            <img src="assets/image/icon/ic_eye.svg" alt="#">
+                        </div>
                     </div>
+
                     <div>
                         <p class="title">تگ نیم</p>
-                        <span class="input-text-profile margin0"><?php echo $_SESSION['UserOk']['tagname']; ?></span>
+                        <div class="input-text-login margin0">
+                            <p class="input-text-profile"><?php echo $_SESSION['UserOk']['tagname']; ?></p>
+                            <img src="assets/image/icon/ic_at-sign.svg" alt="#">
+                        </div>
                     </div>
                     <div></div>
                 </div>
