@@ -18,6 +18,10 @@
 
     </div>
 
+    <p style="font-size: 14px;
+    font-weight: 300;
+    text-align: right;
+    color: var(--NColor2);">صفحه اصلی / پروفایل</p>
     <!-- <img class="header_logo" src="/assets/image/logo/sepehrlogo.png"> -->
 
     <div class="clear"></div>

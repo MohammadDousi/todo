@@ -516,3 +516,17 @@ function NewUser()
         echo "ErrorGetData";
     }
 }
+
+
+
+
+function GroupDigi_Mobile($mobile)
+{
+
+    $m1 = mb_substr($mobile, 0, 4);
+    $m2 = mb_substr($mobile, 4, 3);
+    $m3 = mb_substr($mobile, 7, 2);
+    $m4 = mb_substr($mobile, 9,2);
+
+    return $m1 . " " . $m2 . " " . $m3 . " " .$m4;
+}

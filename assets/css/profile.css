@@ -4,7 +4,7 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
-    padding: 0 5%;
+    padding: 2% 4%;
 }
 
 .info {
@@ -23,7 +23,7 @@
     width: 15%;
 }
 
-.info-right > img {
+.info-right>img {
     width: 60%;
     margin-left: 10%;
     object-fit: cover;
@@ -47,6 +47,33 @@
 .info-row>div {
     width: 100%;
 }
+
+
+
+.text1-login {
+    font-size: 16px;
+    font-weight: 900;
+    float: right;
+}
+
+.lines {
+    width: 100%;
+}
+
+.line1 {
+    width: 0.3rem;
+    height: 0.3rem;
+    background: var(--NColor1);
+    border-radius: 8rem;
+    float: right;
+    margin: 8px 0 25px 0;
+}
+
+.line2 {
+    width: 3rem;
+    margin-right: 0.3rem;
+}
+
 
 .title {
     font-size: 14px;
@@ -72,10 +99,31 @@ input text and btn
     font-weight: normal;
     text-align: right;
     transition: var(--transition);
+    direction: ltr;
 }
 
 .margin0 {
     margin: 0;
+}
+
+.input-edit-profile {
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 24px;
+    float: left;
+    transition: var(--transition);
+    color: var(--NColor1);
+    border: 1px solid var(--NColor1);
+}
+
+.input-edit-profile:hover {
+    background-color: var(--NColor1);
+    border: 1px solid var(--NColor1);
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .input-btn-profile {
@@ -96,12 +144,11 @@ input text and btn
 
 .input-btn-strok-profile {
     background-color: transparent;
-    border: 1px solid var(--NColor1);
     color: var(--NColor1);
 }
 
 .input-btn-strok-profile:hover {
     background-color: var(--NColor1);
-    border: 0px;
-    color: #ffffff;
+    border: 1px solid var(--NColor1);
+    color: var(--NColor1);
 }

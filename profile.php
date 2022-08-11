@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <?php
     if (isset($_POST['edit'])) {
         ProfileEdit();
@@ -31,36 +32,47 @@
 
             <div class="info-left">
 
+
+                <div style="width: 100%;">
+                    <div style="float: right;">
+                        <p class="text1-login">اطلاعات کاربری</p>
+                        <div class="lines">
+                            <div class="line1"></div>
+                            <div class="line1 line2"></div>
+                        </div>
+                    </div>
+
+                    <input type="submit" name="" class="input-edit-profile" style="float: left;" value="ویرایش اطلاعات" />
+
+                </div>
+
+
                 <div class="info-row">
                     <div>
                         <p class="title">نام</p>
-                        <input name="name" value="<?php echo $_SESSION['UserOk']['name']; ?>" class="input-text-profile" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                        <span class="input-text-profile"><?php echo $_SESSION['UserOk']['name']; ?></span>
                     </div>
                     <div>
                         <p class="title">رمز عبور</p>
-                        <input name="pass" value="<?php echo $_SESSION['UserOk']['password']; ?>" class="input-text-profile" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                        <span class="input-text-profile"><?php echo $_SESSION['UserOk']['password']; ?></span>
                     </div>
                     <div>
                         <p class="title">موبایل</p>
-                        <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input-text-profile" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                        <p class="input-text-profile"><?php echo GroupDigi_Mobile($_SESSION['UserOk']['mobile']); ?></p>
                     </div>
                 </div>
 
                 <div class="info-row">
                     <div>
                         <p class="title">آخرین بازدید</p>
-                        <input value="<?php echo $_SESSION['UserOk']['lastseen']; ?>" class="input-text-profile margin0" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                        <span class="input-text-profile margin0"><?php echo $_SESSION['UserOk']['lastseen']; ?></span>
                     </div>
                     <div>
                         <p class="title">تگ نیم</p>
-                        <input value="<?php echo $_SESSION['UserOk']['tagname']; ?>" class="input-text-profile margin0" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                        <span class="input-text-profile margin0"><?php echo $_SESSION['UserOk']['tagname']; ?></span>
                     </div>
                     <div></div>
                 </div>
-
-                
-                <input type="submit" name="login" class="input-btn-profile" value="ورود" />
-
             </div>
 
         </div>
