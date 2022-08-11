@@ -10,6 +10,12 @@
 </head>
 
 <body>
+
+    <?php
+    if (isset($_POST['login'])) {
+        Login();
+    } ?>
+
     <div class="content-login">
 
         <div class="content-right-login">
@@ -25,17 +31,17 @@
 
                 <p>تلفن همراه</p>
                 <div class="input-text-login">
-                    <input type="text" name="Mobile" placeholder="مثال: 09301231121" autocomplete="off" required maxlength="11" />
+                    <input type="text" name="mobile" placeholder="مثال: 09301231121" autocomplete="off" required maxlength="11" />
                     <img src="assets/image/icon/ic_mobile.svg" alt="">
                 </div>
 
                 <p>رمز عبور</p>
                 <div class="input-text-login">
-                    <input type="password" name="Pass" id="pass" placeholder="********" required autocomplete="off" />
+                    <input type="password" name="pass" id="pass" placeholder="********" required autocomplete="off" />
                     <img src="assets/image/icon/ic_eye.svg" id="eye-pass" onclick="ShowPass()" alt="">
                 </div>
 
-                <input type="submit" name="Login" class="input-btn-login" value="ورود" />
+                <input type="submit" name="login" class="input-btn-login" value="ورود" />
                 <input type="submit" name="" class="input-btn-login input-btn-strok-login" value="ورود با رمز عبور یک بار مصرف" />
             </form>
 

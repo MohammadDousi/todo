@@ -3,10 +3,10 @@ function Login()
 {
     global $con;
 
-    if (isset($_POST['Mobile']) && isset($_POST['Pass'])) {
+    if (isset($_POST['mobile']) && isset($_POST['pass'])) {
 
-        $mobile = $_POST['Mobile'];
-        $pass = $_POST['Pass'];
+        $mobile = $_POST['mobile'];
+        $pass = $_POST['pass'];
 
         if (preg_match("/^09[0-9]{9}$/", $mobile)) {
 
