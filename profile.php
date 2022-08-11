@@ -1,7 +1,7 @@
 <?php require_once "assets/php/init.php";
-if (!isset($_SESSION['UserOk'])) {
-    header('location:login.php');
-}
+// if (!isset($_SESSION['UserOk'])) {
+//     header('location:login.php');
+// }
 ?>
 <html lang="en">
 
@@ -9,18 +9,65 @@ if (!isset($_SESSION['UserOk'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/insert.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
     <title>پروفایل</title>
 </head>
 
 <body>
-
     <?php
     if (isset($_POST['edit'])) {
         ProfileEdit();
     } ?>
 
-    <div class="content">
+    <div class="content-profile">
+
+        <div class="info">
+
+            <div class="info-right">
+                <!-- <img src="/assets/image/pic_user/<?php // echo $_SESSION['UserOk']['avator']; 
+                                                        ?>" alt=""> -->
+                <img src="assets/image/pic_user/u4.png" alt="">
+            </div>
+
+            <div class="info-left">
+
+                <div class="info-row">
+                    <div>
+                        <p class="title">نام</p>
+                        <input name="name" value="<?php echo $_SESSION['UserOk']['name']; ?>" class="input-text-profile" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                    </div>
+                    <div>
+                        <p class="title">رمز عبور</p>
+                        <input name="pass" value="<?php echo $_SESSION['UserOk']['password']; ?>" class="input-text-profile" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                    </div>
+                    <div>
+                        <p class="title">موبایل</p>
+                        <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input-text-profile" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                    </div>
+                </div>
+
+                <div class="info-row">
+                    <div>
+                        <p class="title">آخرین بازدید</p>
+                        <input value="<?php echo $_SESSION['UserOk']['lastseen']; ?>" class="input-text-profile margin0" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                    </div>
+                    <div>
+                        <p class="title">تگ نیم</p>
+                        <input value="<?php echo $_SESSION['UserOk']['tagname']; ?>" class="input-text-profile margin0" disabled type="text" placeholder="..." maxlength="65" autocomplete="off" />
+                    </div>
+                    <div></div>
+                </div>
+
+                
+                <input type="submit" name="login" class="input-btn-profile" value="ورود" />
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- <div class="content-profile">
         <div class="content_new_task">
             <div class="box">
 
@@ -61,7 +108,7 @@ if (!isset($_SESSION['UserOk'])) {
             </div>
         </div>
         <div class="clear"></div>
-    </div>
+    </div> -->
     <div class="clear"></div>
 </body>
 <script src="assets/js/script.js"></script>
