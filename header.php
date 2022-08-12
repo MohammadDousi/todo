@@ -10,14 +10,13 @@
                 <form method="POST">
                     <input class="sub_dropdown" type="submit" name="profile" onclick="<?php if (isset($_POST['profile'])) header('location:profile.php'); ?>" value="پروفایل">
                     <input class="sub_dropdown" type="submit" name="logout" onclick="<?php if (isset($_POST['logout'])) logout(); ?>" value="خروج">
-
                 </form>
             </div>
         </div>
 
     </div>
 
-    <img class="img-address" src="assets/image/icon/ic_home.svg" alt="#">
+    <img class="img-address" src="assets/image/icon/ic_three-dots.svg" alt="#">
     <p class="header-address" id="header-address"></p>
 
     <!-- <img class="header_logo" src="/assets/image/logo/sepehrlogo.png"> -->

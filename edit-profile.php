@@ -10,13 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/profile.css">
-    <title>پروفایل</title>
+    <title>ویرایش اطلاعات</title>
 </head>
 
 <body>
 
     <?php
-    require_once "header.php"; ?>
+    require_once "header.php";
+    if (isset($_POST['edit'])) {
+        ProfileEdit();
+    } ?>
 
     <div class="content-profile">
 
@@ -36,7 +39,7 @@
                             <div class="line1 line2"></div>
                         </div>
                     </div>
-                    <input type="submit" onclick="GoToEditProfile()" class="input-edit-profile" style="float: left;" value="ویرایش اطلاعات" />
+                    <input type="submit" name="" class="input-edit-profile" style="float: left;" value="ویرایش اطلاعات" />
                 </div>
 
                 <div class="info-row">

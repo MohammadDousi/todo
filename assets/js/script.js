@@ -16,6 +16,12 @@ function GoToEdit(Id) {
   location.assign("edit.php?Id=" + Id);
 }
 
+function GoToEditProfile() {
+  location.assign("edit-profile.php");
+}
+
+
+
 /////////////////////////////////////
 ////// cheek img real
 //////////////////////////////////////

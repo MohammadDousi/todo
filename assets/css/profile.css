@@ -7,6 +7,11 @@
     padding: 2% 4%;
 }
 
+
+/* /////////////////////////////////// 
+info box
+///////////////////////////////////// */
+
 .info {
     width: 100%;
     height: auto;
@@ -48,8 +53,6 @@
     width: 100%;
 }
 
-
-
 .text1-login {
     font-size: 16px;
     font-weight: 900;
@@ -73,7 +76,6 @@
     width: 3rem;
     margin-right: 0.3rem;
 }
-
 
 .title {
     font-size: 14px;
@@ -139,7 +141,6 @@ input text and btn
     float: left;
     cursor: pointer;
 }
-
 
 .margin0 {
     margin: 0;
