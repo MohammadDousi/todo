@@ -136,6 +136,18 @@ input text and btn
     direction: ltr;
 }
 
+.input-text-login>input {
+    width: 100%;
+    float: right;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: right;
+    background: #ffffff;
+    cursor: text;
+    transition: var(--transition);
+    direction: ltr;
+}
+
 .input-text-login>img {
     width: 1rem;
     float: left;

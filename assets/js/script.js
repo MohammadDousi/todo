@@ -17,7 +17,7 @@ function GoToEdit(Id) {
 }
 
 function GoToEditProfile() {
-  location.assign("edit-profile.php");
+  location.assign("profile-edit.php");
 }
 
 
@@ -35,12 +35,57 @@ function onchangeImg() {
 }
 
 /////////////////////////////////////
-////// show password login
+////// show password login & profile edit
 //////////////////////////////////////
 
 function ShowPass() {
   var eye = document.getElementById("eye-pass");
   var pass = document.getElementById("pass");
+  eye.onclick = function () {
+    if (pass.type === "text") {
+      pass.type = "password";
+      eye.src = "assets/image/icon/ic_eye.svg";
+    } else {
+      pass.type = "text";
+      eye.src = "assets/image/icon/ic_eye_red.svg";
+    }
+  };
+}
+
+function CurrentPass(){
+  var eye = document.getElementById("current-pass-eye");
+  var pass = document.getElementById("current-pass");
+  eye.onclick = function () {
+    if (pass.type === "text") {
+      pass.type = "password";
+      eye.src = "assets/image/icon/ic_eye.svg";
+    } else {
+      pass.type = "text";
+      eye.src = "assets/image/icon/ic_eye_red.svg";
+    }
+  };
+}
+
+
+function NewPass(){
+  var eye = document.getElementById("new-pass-eye");
+  var pass = document.getElementById("new-pass");
+  eye.onclick = function () {
+    if (pass.type === "text") {
+      pass.type = "password";
+      eye.src = "assets/image/icon/ic_eye.svg";
+    } else {
+      pass.type = "text";
+      eye.src = "assets/image/icon/ic_eye_red.svg";
+    }
+  };
+}
+
+
+
+function NewPassRepet(){
+  var eye = document.getElementById("new-pass-repet-eye");
+  var pass = document.getElementById("new-pass-repet");
   eye.onclick = function () {
     if (pass.type === "text") {
       pass.type = "password";
