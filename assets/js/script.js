@@ -35,15 +35,47 @@ function onchangeImg() {
 function ShowPass() {
   var eye = document.getElementById("eye-pass");
   var pass = document.getElementById("pass");
-  eye.onclick = function() {
-      if (pass.type === 'text') {
-          pass.type = 'password';
-          eye.src = "assets/image/icon/ic_eye.svg"
-      } else {
-          pass.type = 'text';
-          eye.src = "assets/image/icon/ic_eye_red.svg"
-      }
+  eye.onclick = function () {
+    if (pass.type === "text") {
+      pass.type = "password";
+      eye.src = "assets/image/icon/ic_eye.svg";
+    } else {
+      pass.type = "text";
+      eye.src = "assets/image/icon/ic_eye_red.svg";
+    }
+  };
+}
+
+/////////////////////////////////////
+////// change show addrees user in header
+//////////////////////////////////////
+
+function HeaderAddress() {
+  var show,
+    address = window.location.href;
+  start = address.lastIndexOf("/");
+  end = address.lastIndexOf(".");
+  address = address.substring(start + 1, end);
+
+  switch (address) {
+    case "index":
+      show = "صفحه اصلی";
+      break;
+    case "profile":
+      show = "صفحه اصلی / پروفایل";
+      break;
+    case "edit-profile":
+      show = "صفحه اصلی / پروفایل / ویرایش اطلاعات";
+      break;
+    case "insert.php":
+      show = "صفحه اصلی / تسک جدید";
+      break;
+    case "edit.php":
+      show = "صفحه اصلی / ویرایش تسک";
+      break;
   }
+
+  document.getElementById("header-address").innerText = show;
 }
 
 /////////////////////////////////////

@@ -1,4 +1,3 @@
-
 <div class="header">
     <div class="profile_admin" id="profile_admin">
         <button class="dropbtn" onclick="Fun_profile_admin()"></button>
@@ -18,11 +17,15 @@
 
     </div>
 
-    <p style="font-size: 14px;
-    font-weight: 300;
-    text-align: right;
-    color: var(--NColor2);">صفحه اصلی / پروفایل</p>
-    <!-- <img class="header_logo" src="/assets/image/logo/sepehrlogo.png"> -->
+    <img class="img-address" src="assets/image/icon/ic_home.svg" alt="#">
+    <p class="header-address" id="header-address"></p>
 
+    <!-- <img class="header_logo" src="/assets/image/logo/sepehrlogo.png"> -->
     <div class="clear"></div>
 </div>
+
+
+<script src="assets/js/script.js"></script>
+<script>
+    HeaderAddress();
+</script>

@@ -357,9 +357,10 @@
 
     <?php require_once "footer.php"; ?>
     <div class="clear"></div>
-    
+
 </body>
 
 <script src="assets/js/script.js"></script>
+
 
 </html>

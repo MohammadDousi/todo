@@ -31,7 +31,7 @@
 
                 <p>تلفن همراه</p>
                 <div class="input-text-login">
-                    <input type="text" name="mobile" placeholder="مثال: 09301231121" autocomplete="off" required maxlength="11" />
+                    <input type="text" name="mobile" placeholder="مثال: 09301231121" autocomplete="off" maxlength="11" required autofocus />
                     <img src="assets/image/icon/ic_mobile.svg" alt="">
                 </div>
 

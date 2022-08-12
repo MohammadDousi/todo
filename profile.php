@@ -16,18 +16,18 @@
 <body>
 
     <?php
+    require_once "header.php";
     if (isset($_POST['edit'])) {
         ProfileEdit();
     } ?>
+
 
     <div class="content-profile">
 
         <div class="info">
 
             <div class="info-right">
-                <!-- <img src="/assets/image/pic_user/<?php // echo $_SESSION['UserOk']['avator']; 
-                                                        ?>" alt=""> -->
-                <img src="assets/image/pic_user/u4.png" alt="">
+                <img src="/assets/image/pic_user/<?php echo $_SESSION['UserOk']['avator']; ?>" alt="">
             </div>
 
             <div class="info-left">
@@ -42,7 +42,6 @@
                     </div>
                     <input type="submit" name="" class="input-edit-profile" style="float: left;" value="ویرایش اطلاعات" />
                 </div>
-
 
                 <div class="info-row">
                     <div>
