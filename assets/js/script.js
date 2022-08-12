@@ -70,7 +70,7 @@ function HeaderAddress() {
     case "profile":
       show = "صفحه اصلی / پروفایل";
       break;
-    case "edit-profile":
+    case "profile-edit":
       show = "صفحه اصلی / پروفایل / ویرایش اطلاعات";
       break;
     case "insert.php":
