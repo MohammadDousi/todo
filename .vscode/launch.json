@@ -10,8 +10,6 @@
             "name": "Launch Chrome against localhost",
             "url": "http://localhost/todo/index.php",
             "webRoot": "${workspaceFolder}"
-
-            
         }
     ]
 }
