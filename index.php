@@ -1,7 +1,7 @@
 <?php require_once "assets/php/init.php";
-// if (!isset($_SESSION['UserOk'])) {
-//     header('location:login.php');
-// }
+if (!isset($_SESSION['UserOk'])) {
+    header('location:login.php');
+}
 ?>
 <html lang="en">
 

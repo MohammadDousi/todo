@@ -7,13 +7,13 @@
     height: 10%;
     top: 0;
     padding: 1%;
-    margin: 1% 4% 0% 4%;
+    margin: 0.5rem 4%;
     position: relative;
     display: flex;
     align-items: center;
-    background: #fff;
+    /* background: #fff; */
     border-radius: 22px;
-    box-shadow: 0 0 15px rgba(38, 50, 56, 5%);
+    /* box-shadow: 0 0 15px rgba(38, 50, 56, 5%); */
 }
 
 .header-address {
@@ -55,7 +55,7 @@
 }
 
 /* ///////////////////////////////////////////////
- header -> profile 
+ header user profile 
 /////////////////////////////////////////////// */
 
 .profile_admin {
