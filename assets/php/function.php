@@ -345,106 +345,109 @@ function ProfileEdit()
 
     if (isset($_POST['mobile'])) {
 
-        // if (preg_match("/^09[0-9]{9}$/", $_POST['mobile'])) {
+        if (preg_match("/^09[0-9]{9}$/", $_POST['mobile'])) {
 
 
-        $File_image = $_FILES['Image']['name'];
-        $Type = $_FILES['Image']['type'];
-        $Size = $_FILES['Image']['size'];
-        $Temp = $_FILES['Image']['tmp_name'];
+            $File_image = $_FILES['Image']['name'];
+            $Type = $_FILES['Image']['type'];
+            $Size = $_FILES['Image']['size'];
+            $Temp = $_FILES['Image']['tmp_name'];
 
-        $upload_path = $_SERVER['DOCUMENT_ROOT'] . "assets/image/pic_user/";
+            $upload_path = $_SERVER['DOCUMENT_ROOT'] . "assets/image/pic_user/";
 
-        if ($Size == 0 || null || "") {
-            $File_image = $_SESSION['UserOk']['avator'];
-        } else {
-            $Type = str_replace("image/", ".", $Type);
+            if ($Size == 0 || null || "") {
+                $File_image = $_SESSION['UserOk']['avator'];
+            } else {
+                $Type = str_replace("image/", ".", $Type);
 
-            $File_image = jdate("Ymj") . substr(uniqid(), 1) . jdate("His") . $Type;
-            $File_image = str_replace(' ', '-', $File_image);
-            $path = $upload_path . $File_image;
+                $File_image = jdate("Ymj") . substr(uniqid(), 1) . jdate("His") . $Type;
+                $File_image = str_replace(' ', '-', $File_image);
+                $path = $upload_path . $File_image;
 
-            if ($File_image) {
-                if ($Type == ".jpg" || ".jpeg" || ".png") {
-                    if (!file_exists($path)) {
-                        if ($Size < 2000000) {
-                            move_uploaded_file($Temp, $path);
-                            $path = $upload_path . $_SESSION['UserOk']['avator'];
-                            unlink($path);
+                if ($File_image) {
+                    if ($Type == ".jpg" || ".jpeg" || ".png") {
+                        if (!file_exists($path)) {
+                            if ($Size < 2000000) {
+                                move_uploaded_file($Temp, $path);
+                                $path = $upload_path . $_SESSION['UserOk']['avator'];
+                                unlink($path);
+                            } else {
+                                echo "image Size is up !";
+                            }
                         } else {
-                            echo "image Size is up !";
+                            echo "image name is already. change name image";
                         }
                     } else {
-                        echo "image name is already. change name image";
+                        echo "Type is not support.";
                     }
                 } else {
-                    echo "Type is not support.";
+                    echo "name is empty.";
+                }
+            }
+
+            $current_pass = $_POST['current-pass'];
+            $new_pass = $_POST['new-pass'];
+            $new_pass_repet = $_POST['new-pass-repet'];
+
+            if (($new_pass != "" || null) && ($new_pass_repet != "" || null) && ($current_pass != "" || null)) {
+
+                if (($current_pass == $_SESSION['UserOk']['password'])) {
+
+                    if ($new_pass == $new_pass_repet) {
+                        $pass = $_POST['new-pass'];
+                    } else {
+                        echo "pass new no";
+                        goto end;
+                    }
+                } else {
+                    echo "currentpass no";
+                    goto end;
                 }
             } else {
-                echo "name is empty.";
+                $pass = $_SESSION['UserOk']['password'];
             }
-        }
 
 
-        $current_pass = $_POST['current-pass'];
-        $new_pass = $_POST['new-pass'];
-        $new_pass_repet = $_POST['new-pass-repet'];
-
-        if (($new_pass != "" || null) && ($new_pass_repet != "" || null) && ($current_pass != "" || null)) {
-
-            if (($current_pass == $_SESSION['UserOk']['password'])) {
-            
-                if ($new_pass == $new_pass_repet) {
-                    $pass = $_POST['new-pass'];
-                }else{
-                    echo "pass new no";
-                }
-            
-            } else {
-                echo "currentpass no";
-            }
-        
-        } else {
-            $pass = $_SESSION['UserOk']['password'];
-        }
-
-
-
-        $query = 'UPDATE dbuser SET `Password` = :pass , `Mobile` = :mobile , `Avator` = :avator WHERE Id = :id';
-        $query  = str_replace(";", "", $query);
-        $stmt = $con->prepare($query);
-        $stmt->bindparam(':pass', $pass, PDO::PARAM_STR);
-        $stmt->bindparam(':mobile', $_POST['mobile'], PDO::PARAM_STR);
-        $stmt->bindparam(':avator', $File_image, PDO::PARAM_STR);
-        $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
-        $stmt->execute();
-
-        $status = $stmt->execute();
-
-        if ($status) {
-
-            $query = 'SELECT * FROM dbuser WHERE Id = :id LIMIT 1';
-            $query = str_replace(";", "", $query);
+            $query = 'UPDATE dbuser SET `Password` = :pass , `Mobile` = :mobile , `Avator` = :avator WHERE Id = :id';
+            $query  = str_replace(";", "", $query);
             $stmt = $con->prepare($query);
-            $stmt->bindParam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_STR);
+            $stmt->bindparam(':pass', $pass, PDO::PARAM_STR);
+            $stmt->bindparam(':mobile', $_POST['mobile'], PDO::PARAM_STR);
+            $stmt->bindparam(':avator', $File_image, PDO::PARAM_STR);
+            $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
             $stmt->execute();
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($row) {
-                $_SESSION['UserOk'] = [
-                    'id' => $row['Id'], 'name' => $row['Name'],
-                    'password' => $row['Password'], 'tagname' => $row['TagName'],
-                    'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
-                    'lastseen' => $row['Lastseen']
-                ];
+            $status = $stmt->execute();
+
+            if ($status) {
+
+                $query = 'SELECT * FROM dbuser WHERE Id = :id LIMIT 1';
+                $query = str_replace(";", "", $query);
+                $stmt = $con->prepare($query);
+                $stmt->bindParam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_STR);
+                $stmt->execute();
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($row) {
+                    $_SESSION['UserOk'] = [
+                        'id' => $row['Id'], 'name' => $row['Name'],
+                        'password' => $row['Password'], 'tagname' => $row['TagName'],
+                        'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
+                        'lastseen' => $row['Lastseen']
+                    ];
+                }
+                return true;
+            } else {
+                $errors = $stmt->errorInfo();
+                echo "ErrorUpdateData";
+                return false;
             }
-            return true;
+            end:
+
         } else {
-            $errors = $stmt->errorInfo();
-            echo "ErrorUpdateData";
-            return false;
+            echo "ErrorGetMobile";
         }
-    } else {
+    }else{
         echo "ErrorGetData";
     }
 }
