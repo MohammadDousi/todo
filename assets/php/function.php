@@ -22,7 +22,7 @@ function Login()
                 $_SESSION['UserOk'] = [
                     'id' => $row['Id'], 'name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
-                    'mobile' => $row['Mobile'], 'peruser' => $row['PerUser'], 'avator' => $row['Avator'],
+                    'mobile' => $row['Mobile'],'avator' => $row['Avator'],
                     'lastseen' => $row['Lastseen']
                 ];
                 if ($_SESSION) {
@@ -343,14 +343,15 @@ function ProfileEdit()
 
     global $con;
 
-    if (isset($_POST['name']) && isset($_POST['pass']) && isset($_POST['mobile'])) {
+    if (isset($_POST['mobile'])) {
 
         $File_image = $_FILES['Image']['name'];
         $Type = $_FILES['Image']['type'];
         $Size = $_FILES['Image']['size'];
         $Temp = $_FILES['Image']['tmp_name'];
 
-        $upload_path = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/pic_user/";
+        // $upload_path = $_SERVER['DOCUMENT_ROOT'] . "assets/image/pic_user/";
+        $upload_path = "assets/image/pic_user/";
 
         if ($Size == 0 || null || "") {
             $File_image = $_SESSION['UserOk']['avator'];
@@ -382,10 +383,16 @@ function ProfileEdit()
             }
         }
 
-        $query = 'UPDATE dbuser SET `Name` = :name , `Password` = :pass , `Mobile` = :mobile , `Avator` = :avator WHERE Id = :id';
+
+        
+
+
+
+
+
+        $query = 'UPDATE dbuser SET `Password` = :pass , `Mobile` = :mobile , `Avator` = :avator WHERE Id = :id';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
-        $stmt->bindparam(':name', $_POST['name'], PDO::PARAM_STR);
         $stmt->bindparam(':pass', $_POST['pass'], PDO::PARAM_STR);
         $stmt->bindparam(':mobile', $_POST['mobile'], PDO::PARAM_STR);
         $stmt->bindparam(':avator', $File_image, PDO::PARAM_STR);
@@ -516,9 +523,6 @@ function NewUser()
         echo "ErrorGetData";
     }
 }
-
-
-
 
 function GroupDigi_Mobile($mobile)
 {
