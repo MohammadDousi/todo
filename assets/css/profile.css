@@ -24,6 +24,12 @@ info box
     box-shadow: 0 0 30px rgba(38, 50, 56, 0.05);
 }
 
+.info > form {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
 .info-right {
     width: 15%;
 }
