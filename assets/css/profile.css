@@ -31,19 +31,25 @@ info box
 }
 
 .info-right {
-    width: 15%;
+    width: 20%;
+    padding: 0% 2%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    row-gap: 3rem;
 }
 
 .info-right>img {
-    width: 60%;
-    margin-left: 10%;
+    width: 75%;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(38, 50, 56, 0.16);
 }
 
 .info-left {
-    width: 85%;
+    width: 80%;
 }
 
 .info-row {
@@ -112,6 +118,36 @@ input text and btn
     border: 1px solid var(--NColor1);
     color: #ffffff;
     font-weight: bold;
+}
+
+
+/* ///////////////////////////////////////////////
+input file
+/////////////////////////////////////////////// */
+
+.input_file {
+    font-size: 14px;
+    padding: 10px;
+}
+
+.input_file:hover{
+    cursor: pointer;
+    border: 1px solid var(--NColor3);
+    background-color: var(--NColor4);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.inputfile {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: relative;
+}
+
+ .input_file > label {
+    cursor: pointer;
+    font-weight: 500;
 }
 
 /* /////////////////////////////////// 

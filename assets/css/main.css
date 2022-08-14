@@ -357,45 +357,6 @@ input text
 }
 
 /* ///////////////////////////////////////////////
-input file
-/////////////////////////////////////////////// */
-
-.input_file {
-    width: 100%;
-    background: var(--amber500);
-    border-radius: 8px;
-    padding: 10px 15px;
-    color: #000;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 14px;
-}
-
-.input_file:hover {
-    background: var(--amber700);
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    /* overflow: hidden; */
-    /* position: absolute; */
-    z-index: -1;
-    cursor: pointer;
-}
-
-.inputfile+label {
-    float: right;
-    color: #000;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 14px;
-}
-
-/* ///////////////////////////////////////////////
 input button
 /////////////////////////////////////////////// */
 
