@@ -36,7 +36,6 @@ if (!isset($_SESSION['UserOk'])) {
                             <div class="line1 line2"></div>
                         </div>
                     </div>
-                    <input type="submit" onclick="GoToEditProfile()" class="input-edit-profile" style="float: left;" value="ویرایش اطلاعات" />
                 </div>
 
                 <div class="info-row">
@@ -66,7 +65,7 @@ if (!isset($_SESSION['UserOk'])) {
                 <div class="info-row">
                     <div>
                         <p class="title">آخرین بازدید</p>
-                        <div class="input-text-login margin0">
+                        <div class="input-text-login">
                             <p><?php echo $_SESSION['UserOk']['lastseen']; ?></p>
                             <img src="assets/image/icon/ic_eye.svg" alt="#">
                         </div>
@@ -74,13 +73,21 @@ if (!isset($_SESSION['UserOk'])) {
 
                     <div>
                         <p class="title">تگ نیم</p>
-                        <div class="input-text-login margin0">
+                        <div class="input-text-login">
                             <p><?php echo $_SESSION['UserOk']['tagname']; ?></p>
                             <img src="assets/image/icon/ic_at-sign.svg" alt="#">
                         </div>
                     </div>
                     <div></div>
                 </div>
+
+                <div class="info-row row-btn">
+
+                    <input type="submit" onclick="GoToEditProfile()" class="input-edit-profile" style="float: left;" value="ویرایش اطلاعات" />
+                    <input class="input-edit-profile input-cancel" type="button" onclick="GoToIndex()" value="بازگشت" />
+                
+                </div>
+
             </div>
 
         </div>

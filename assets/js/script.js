@@ -16,22 +16,24 @@ function GoToEdit(Id) {
   location.assign("edit.php?Id=" + Id);
 }
 
+function GoToProfile() {
+  location.assign("profile.php");
+}
+
 function GoToEditProfile() {
   location.assign("profile-edit.php");
 }
 
-
-
 /////////////////////////////////////
 ////// cheek img real
 //////////////////////////////////////
+
 function onchangeImg() {
   imgInp.onchange = (evt) => {
-    const [file] = imgInp.files;
     if (file) {
       img.src = URL.createObjectURL(file);
     }
-  };
+  }; 
 }
 
 /////////////////////////////////////
@@ -52,7 +54,7 @@ function ShowPass() {
   };
 }
 
-function CurrentPass(){
+function CurrentPass() {
   var eye = document.getElementById("current-pass-eye");
   var pass = document.getElementById("current-pass");
   eye.onclick = function () {
@@ -66,8 +68,7 @@ function CurrentPass(){
   };
 }
 
-
-function NewPass(){
+function NewPass() {
   var eye = document.getElementById("new-pass-eye");
   var pass = document.getElementById("new-pass");
   eye.onclick = function () {
@@ -81,9 +82,7 @@ function NewPass(){
   };
 }
 
-
-
-function NewPassRepet(){
+function NewPassRepet() {
   var eye = document.getElementById("new-pass-repet-eye");
   var pass = document.getElementById("new-pass-repet");
   eye.onclick = function () {

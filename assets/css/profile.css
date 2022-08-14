@@ -24,7 +24,7 @@ info box
     box-shadow: 0 0 30px rgba(38, 50, 56, 0.05);
 }
 
-.info > form {
+.info>form {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -59,6 +59,11 @@ info box
     justify-content: center;
     align-content: center;
     column-gap: 2rem;
+}
+
+.row-btn {
+    justify-content: flex-end;
+    column-gap: 1rem;
 }
 
 .info-row>div {
@@ -121,6 +126,17 @@ input text and btn
 }
 
 
+.input-cancel {
+    color: var(--NColor2);
+    border: 1px solid var(--NColor2);
+}
+
+.input-cancel:hover{
+    background: var(--NColor2);
+    color: #ffffff;
+    border-color: var(--NColor2);
+}
+
 /* ///////////////////////////////////////////////
 input file
 /////////////////////////////////////////////// */
@@ -130,7 +146,7 @@ input file
     padding: 10px;
 }
 
-.input_file:hover{
+.input_file:hover {
     cursor: pointer;
     border: 1px solid var(--NColor3);
     background-color: var(--NColor4);
@@ -145,7 +161,7 @@ input file
     position: relative;
 }
 
- .input_file > label {
+.input_file>label {
     cursor: pointer;
     font-weight: 500;
 }
