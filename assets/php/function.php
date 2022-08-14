@@ -22,7 +22,7 @@ function Login()
                 $_SESSION['UserOk'] = [
                     'id' => $row['Id'], 'name' => $row['Name'],
                     'password' => $row['Password'], 'tagname' => $row['TagName'],
-                    'mobile' => $row['Mobile'],'avator' => $row['Avator'],
+                    'mobile' => $row['Mobile'], 'avator' => $row['Avator'],
                     'lastseen' => $row['Lastseen']
                 ];
                 if ($_SESSION) {
@@ -345,13 +345,15 @@ function ProfileEdit()
 
     if (isset($_POST['mobile'])) {
 
+        // if (preg_match("/^09[0-9]{9}$/", $_POST['mobile'])) {
+
+
         $File_image = $_FILES['Image']['name'];
         $Type = $_FILES['Image']['type'];
         $Size = $_FILES['Image']['size'];
         $Temp = $_FILES['Image']['tmp_name'];
 
-        // $upload_path = $_SERVER['DOCUMENT_ROOT'] . "assets/image/pic_user/";
-        $upload_path = "assets/image/pic_user/";
+        $upload_path = $_SERVER['DOCUMENT_ROOT'] . "assets/image/pic_user/";
 
         if ($Size == 0 || null || "") {
             $File_image = $_SESSION['UserOk']['avator'];
@@ -384,16 +386,34 @@ function ProfileEdit()
         }
 
 
+        $current_pass = $_POST['current-pass'];
+        $new_pass = $_POST['new-pass'];
+        $new_pass_repet = $_POST['new-pass-repet'];
+
+        if (($new_pass != "" || null) && ($new_pass_repet != "" || null) && ($current_pass != "" || null)) {
+
+            if (($current_pass == $_SESSION['UserOk']['password'])) {
+            
+                if ($new_pass == $new_pass_repet) {
+                    $pass = $_POST['new-pass'];
+                }else{
+                    echo "pass new no";
+                }
+            
+            } else {
+                echo "currentpass no";
+            }
         
-
-
+        } else {
+            $pass = $_SESSION['UserOk']['password'];
+        }
 
 
 
         $query = 'UPDATE dbuser SET `Password` = :pass , `Mobile` = :mobile , `Avator` = :avator WHERE Id = :id';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
-        $stmt->bindparam(':pass', $_POST['pass'], PDO::PARAM_STR);
+        $stmt->bindparam(':pass', $pass, PDO::PARAM_STR);
         $stmt->bindparam(':mobile', $_POST['mobile'], PDO::PARAM_STR);
         $stmt->bindparam(':avator', $File_image, PDO::PARAM_STR);
         $stmt->bindparam(':id', $_SESSION['UserOk']['id'], PDO::PARAM_INT);
@@ -530,7 +550,7 @@ function GroupDigi_Mobile($mobile)
     $m1 = mb_substr($mobile, 0, 4);
     $m2 = mb_substr($mobile, 4, 3);
     $m3 = mb_substr($mobile, 7, 2);
-    $m4 = mb_substr($mobile, 9,2);
+    $m4 = mb_substr($mobile, 9, 2);
 
-    return $m1 . " " . $m2 . " " . $m3 . " " .$m4;
+    return $m1 . " " . $m2 . " " . $m3 . " " . $m4;
 }
