@@ -21,7 +21,7 @@ function GoToProfile() {
 }
 
 function GoToEditProfile() {
-  location.assign("profile-edit.php");
+  location.assign("profile_edit.php");
 }
 
 /////////////////////////////////////

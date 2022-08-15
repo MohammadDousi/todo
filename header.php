@@ -16,9 +16,7 @@
                 </form>
             </div>
         </div>
-
     </div>
-
 
     <div class="address">
         <img class="img-address" src="assets/image/icon/ic_three_dots.svg" alt="#">
@@ -26,6 +24,7 @@
     </div>
     <!-- <img class="header_logo" src="/assets/image/logo/sepehrlogo.png"> -->
     <div class="clear"></div>
+    
 </div>
 
 
