@@ -16,11 +16,11 @@
         Login();
     } ?>
 
-    <div class="content-login">
+    <div class="content_login">
 
         <div class="content-right-login">
 
-            <p class="text1-login">ورود به پنل کاربری</p>
+            <p class="title_title">ورود به پنل کاربری</p>
 
             <div class="lines">
                 <div class="line1"></div>
@@ -29,20 +29,20 @@
 
             <form class="form-login" method="POST">
 
-                <p>تلفن همراه</p>
-                <div class="input-text-login">
+                <p class="title">تلفن همراه</p>
+                <div class="input_text">
                     <input type="text" name="mobile" placeholder="مثال: 09301231121" autocomplete="off" maxlength="11" required autofocus />
                     <img src="assets/image/icon/ic_mobile.svg" alt="">
                 </div>
 
-                <p>رمز عبور</p>
-                <div class="input-text-login">
+                <p class="title">رمز عبور</p>
+                <div class="input_text">
                     <input type="password" name="pass" id="pass" placeholder="********" required autocomplete="off" />
                     <img src="assets/image/icon/ic_eye.svg" id="eye-pass" onclick="ShowPass()" alt="">
                 </div>
 
-                <input type="submit" name="login" class="input-btn-login" value="ورود" />
-                <input type="submit" name="" class="input-btn-login input-btn-strok-login" value="ورود با رمز عبور یک بار مصرف" />
+                <input type="submit" name="login" class="input_btn" value="ورود" />
+                <input type="submit" name="" class="input_btn input_btn_strok" value="ورود با رمز عبور یک بار مصرف" />
             </form>
 
             <a href="https://sepehr.media/" class="copyright-login">گروه تولید محتوای سپهرمدیا</a>

@@ -33,356 +33,223 @@ body {
     background: var(--NColor4);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* /////////////////////////////////// 
-    content
+  Title Main and title input
 ///////////////////////////////////// */
 
-.content {
-    width: 100%;
-    height: 85%;
-    padding: 0.5% 4% 2% 4%;
-    float: right;
-    position: relative;
-}
-
-.content_task_list {
-    width: 31%;
-    height: 100%;
-    margin: 0% 1%;
-    float: right;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    scrollbar-width: none;
-    border-radius: 8px;
-    padding: 1% 0 0 0;
-}
-
-.back_bluegray {
-    background-color: var(--bluegray50);
-}
-
-.content_task_header {
-    width: 100%;
-    margin: 1% 0%;
-    padding: 0% 5%;
-    display: flex;
-    align-items: center;
-}
-
-.content_task_header>p {
+.title_title {
     font-size: 16px;
-    font-weight: bold;
-    text-align: right;
+    font-weight: 900;
     float: right;
 }
 
-.new_task_btn {
-    left: 0;
-    float: left;
-    padding: 1% 2%;
-    border-radius: 8px;
-    background-color: var(--green500);
-    transition: var(--transition);
-    display: flex;
-    column-gap: 0.5rem;
-    justify-content: flex-end;
-    align-items: center;
-    position: absolute;
+.lines {
+    width: 100%;
 }
 
-.new_task_btn:hover {
-    border-radius: 8px;
-    background-color: var(--green700);
-    transition: var(--transition);
-    cursor: pointer;
-    box-shadow: 0 0 8px var(--green300);
+.line1 {
+    width: 0.3rem;
+    height: 0.3rem;
+    background: var(--NColor1);
+    border-radius: 8rem;
+    float: right;
+    margin: 8px 0 25px 0;
 }
 
-.new_task_btn>p {
-    color: #ffffff;
+.line2 {
+    width: 3rem;
+    margin-right: 0.3rem;
+}
+
+.title {
     font-size: 14px;
     font-weight: 500;
-}
-
-.new_task_btn>img {width: 1rem;}
-
-.content_list_body {
-    width: 100%;
-    height: 100%;
-    margin: 0% 1%;
     float: right;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    scrollbar-width: none;
-    overflow: auto;
-    /* this will hide the scrollbar in mozilla based browsers */
-    overflow: -moz-scrollbars-none;
-    scrollbar-width: none;
-    /* this will hide the scrollbar in internet explorers */
-    -ms-overflow-style: none;
-}
-
-.content_list_body::-webkit-scrollbar {
-    display: none;
-    width: 0 !important;
-    /* for Chrome, Safari, and Opera */
-}
-
-.box_task {
-    width: 92%;
-    height: auto;
-    display: flex;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(38, 50, 56, 0.16);
-    position: relative;
-    margin: 1.5% 3%;
-    transition: var(--transition);
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.box_task:hover {
-    box-shadow: 0 0 15px rgba(38, 50, 56, 0.16);
-    margin: 3% 3%;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.box_task_status {
-    width: 1.5%;
-    height: 100%;
-    border-radius: 8px 0px 0px 8px;
-    float: left !important;
-    left: 0;
-    position: absolute;
-}
-
-.status_create {
-    background-color: var(--bluegray500);
-}
-
-.status_design {
-    background-color: var(--amber500);
-}
-
-.status_videoedit {
-    background-color: var(--purple500);
-}
-
-.status_accept {
-    background-color: var(--green500);
-}
-
-.status_edit {
-    background-color: var(--blue500);
-}
-
-.status_error {
-    background-color: var(--red500);
-}
-
-.box_task_text {
-    padding: 5% 5%;
-    float: right;
-    position: relative;
-    width: 100%;
-}
-
-.text_task {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: normal;
-    text-align: right;
-    float: right;
-}
-
-.description_task {
-    width: 100%;
-    height: auto;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: right;
-    float: right;
-    color: var(--bluegray500);
-    margin-top: 1%;
-}
-
-.date_create_task {
-    width: 100%;
-    height: auto;
-    font-size: 12px;
-    font-weight: 500;
-    text-align: left;
-    float: left;
-    color: var(--bluegray500);
-    margin-top: 1%;
-}
-
-.red {
-    color: var(--red500);
-    font-weight: bold;
+    padding-bottom: 10px;
 }
 
 /* /////////////////////////////////// 
-    dilog box new task
+  input text
 ///////////////////////////////////// */
-
-.dialog_content {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    transition: var(--transition);
-    justify-content: center;
-    align-content: center;
-    overflow: hidden;
-    background: var(--colorPrimary);
-}
-
-.dialog_model {
-    min-width: 30%;
-    max-width: 40%;
-    display: block;
-    position: absolute;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(38, 50, 56, 0.32);
-    z-index: 1;
-    padding: 2% 5%;
-}
-
-.dialog_model>form>p {
-    width: 100%;
-    height: auto;
-    font-size: 16px;
-    text-align: right;
-    float: right;
-    margin-bottom: 2%;
-}
-
-.close {
-    float: left;
-    font-size: xx-large;
-    font-weight: bold;
-    color: #a8a8a8;
-    text-align: left;
-    left: 0;
-    position: relative;
-}
-
-.close:hover,
-.close:focus {
-    color: #f44336;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.show {
-    display: block;
-    transition: var(--transition);
-}
-
-
-/* ///////////////////////////////////////////////
-input text
-/////////////////////////////////////////////// */
 
 .input_text {
     width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    font-size: 16px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid var(--NColor3);
+    cursor: text;
+    padding: 10px;
+    margin-bottom: 25px;
+    float: right;
+    display: flex;
+}
+
+.input_text>input {
+    width: 100%;
+    float: right;
+    font-size: 14px;
     font-weight: normal;
     text-align: right;
     background: #ffffff;
-    border-radius: 8px;
-    border: 2px solid var(--bluegray100);
     cursor: text;
-    padding: 10px 15px 10px 15px;
-    margin-bottom: 5%;
     transition: var(--transition);
+    direction: ltr;
+}
+
+.input_text>p {
+    width: 100%;
     float: right;
-}
-
-.input_text:focus {
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: right;
+    background: #ffffff;
+    cursor: text;
     transition: var(--transition);
+    direction: ltr;
 }
 
-
-.input_textarea {
-    min-height: 25%;
+.input_text>img {
+    width: 1rem;
+    float: left;
+    cursor: pointer;
 }
 
 /* ///////////////////////////////////////////////
-input button
+input file
 /////////////////////////////////////////////// */
 
-.input_button {
-    width: auto;
-    min-width: 20%;
+.input_file {
+    font-size: 14px;
+    padding: 10px;
+}
+
+.input_file:hover {
+    cursor: pointer;
+    border: 1px solid var(--NColor3);
+    background-color: var(--NColor4);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.inputfile {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: relative;
+}
+
+.input_file>label {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* /////////////////////////////////// 
+  input button
+///////////////////////////////////// */
+
+.input_btn {
     border-radius: 8px;
     font-size: 14px;
     font-weight: bold;
     text-align: center;
+    background-color: var(--NColor1);
     color: #ffffff;
     cursor: pointer;
-    padding: 10px 60px;
-    margin: 1%;
-    float: left;
+    padding: 10px 24px;
+    margin: 1rem 0.2rem;
+    float: right;
     transition: var(--transition);
     position: relative;
 }
 
-.active {
-    background: var(--green500);
+.input_btn_strok {
+    background-color: transparent;
+    border: 1px solid var(--NColor1);
+    color: var(--NColor1);
 }
 
-.active:hover {
-    background: var(--green700);
-    transition: var(--transition);
-}
-
-.delete {
-    background: var(--red500);
-}
-
-.delete:hover {
-    background: var(--red700);
+.input_btn_strok:hover {
+    background-color: var(--NColor1);
+    border: 0px;
     color: #ffffff;
+}
+
+
+.input_btn_strok_cancel {
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 24px;
+    margin: 1rem 0.2rem;
+    float: right;
+    position: relative;
+    background-color: transparent;
+    border: 1px solid var(--NColor2);
+    color: var(--NColor2);
     transition: var(--transition);
 }
 
-.edit {
-    background: var(--amber500);
+.input_btn_strok_cancel:hover {
+    background: var(--NColor2);
+    color: #ffffff;
+    border-color: var(--NColor2);
 }
 
-.edit:hover {
-    background: var(--amber700);
-    transition: var(--transition);
-}
 
-.back {
-    background: var(--bluegray500);
-}
 
-.back:hover {
-    background: var(--bluegray700);
-    transition: var(--transition);
-}
 
-/* ///////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* /* ///////////////////////////////////////////////
 input radio
 /////////////////////////////////////////////// */
-
+/* 
 .inputGroupRadio {
     width: auto;
     min-width: 22%;
@@ -405,13 +272,13 @@ input radio
     cursor: pointer;
     padding-right: 5px;
     font-size: 14px;
-}
+} */
 
 
 /* ///////////////////////////////////////////////
     combo box
 /////////////////////////////////////////////// */
-
+/* 
 .combo_box {
     width: 100%;
     height: auto;
@@ -425,106 +292,4 @@ input radio
     margin-bottom: 5%;
     font-weight: normal;
     transition: var(--transition);
-}
-
-/* ///////////////////////////////////////////////
-profile page
-/////////////////////////////////////////////// */
-
-.img_profile {
-    width: 100%;
-    height: auto;
-    max-height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* ///////////////////////////////////////////////
-message
-/////////////////////////////////////////////// */
-
-.message {
-    width: auto;
-    height: auto;
-    z-index: 1;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 1%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.content_message {
-    width: 100%;
-    padding: 1%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.content_message>div {
-    min-width: 15%;
-    position: relative;
-    border-radius: 8px;
-    padding: 5px;
-    box-shadow: 0 0 8px rgb(29 107 242 / 32%);
-    -webkit-animation: message_animate 0.5s none ease-in-out;
-    animation: message_animate 0.5s none ease-in-out;
-    background: red;
-}
-
-.content_message>div>p {
-    font-size: 16px;
-    text-align: center;
-    display: block ruby;
-    color: var(--backcolor);
-    font-weight: bold;
-}
-
-.content_message>div>div {
-    width: 100%;
-    height: 3px;
-    float: right;
-    border-radius: 8px;
-    margin-top: 8px;
-    background: var(--red700);
-    opacity: 25%;
-    -webkit-animation: message_animate 0.5s none ease-in-out;
-    animation: message_animate 0.5s none ease-in-out;
-}
-
-/* ///////////////////////////////////////////////
-data not found
-/////////////////////////////////////////////// */
-
-.box_dont_data {
-    padding: 15%;
-    margin-top: 10%;
-}
-
-.box_dont_data>img {
-    width: 50%;
-}
-
-.box_dont_data>p {
-    color: #000000;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 3%;
-}
-
-.box_dont_data>span {
-    color: var(--blue500);
-    font-size: 14px;
-    text-align: center;
-    font-weight: normal;
-    margin-top: 2%;
-}
+} */
