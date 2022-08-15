@@ -33,7 +33,7 @@ function onchangeImg() {
     if (file) {
       img.src = URL.createObjectURL(file);
     }
-  }; 
+  };
 }
 
 /////////////////////////////////////
@@ -134,17 +134,7 @@ function HeaderAddress() {
 
 function Fun_profile_admin() {
   document.getElementById("myDropdown").classList.toggle("show");
-  var back = document.getElementById("profile_admin");
 }
-
-window.onclick = function (e) {
-  if (!e.target.matches(".dropbtn")) {
-    var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains("show")) {
-      myDropdown.classList.remove("show");
-    }
-  }
-};
 
 /////////////////////////////////////
 ////// select radio insert and edit page
