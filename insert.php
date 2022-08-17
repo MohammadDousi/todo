@@ -1,18 +1,22 @@
-<?php require_once "assets/php/init.php" ;
+<?php require_once "assets/php/init.php";
 if (!isset($_SESSION['UserOk'])) {
     header('location:login.php');
 }
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/insert.css">
-    <title>تسک جدید</title>
+    <link rel="stylesheet" href="assets/css/task.css">
+    <title>ویرایش اطلاعات</title>
 </head>
 
 <body>
+
+    <?php
+    require_once "header.php";?>
 
     <?php
     if (isset($_POST['AddTask'])) {
@@ -24,65 +28,96 @@ if (!isset($_SESSION['UserOk'])) {
     } ?>
 
     <div class="content">
-        <div class="content_new_task">
-            <div class="box">
 
-                <form method="POST" action="">
-                    <p class="title">موضوع</p>
-                    <input name="TextTask" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
+        <div class="info">
 
-                    <p class="title">توضیحات</p>
-                    <textarea name="Description" class="input_text input_textarea" type="text" placeholder="..." autocomplete="off"></textarea>
+            <form action="" method="POST" enctype='multipart/form-data'>
 
-                    <p class="title">سطح فوریت</p>
-                    <div id="usual" onclick="usual()" class="inputGroupRadio">
-                        <input id="radio_usual" name="usual" type="radio" />
-                        <label for="radio_usual">عادی</label>
+                <div class="info_left">
+
+                    <div style="width: 100%;">
+                        <div style="float: right;">
+                            <p class="title_title">ایجاد تسک جدید</p>
+                            <div class="lines">
+                                <div class="line1"></div>
+                                <div class="line1 line2"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="force" onclick="force()" class="inputGroupRadio" style="margin-right: 2%;">
-                        <input id="radio_force" name="force" type="radio" />
-                        <label for="radio_force">فوری</label>
-                    </div>
-                    <div id="vforce" onclick="vforce()" class="inputGroupRadio" style="margin-right: 2%;">
-                        <input id="radio_vforce" name="vforce" type="radio" />
-                        <label for="radio_vforce">فوق العاده</label>
-                    </div>
-            </div>
 
-            <div class="box">
-                <p class="title">تگ افراد مرتبط</p>
-                <input name="SearchAddTag" id="SearchTagName" class="input_text" style="margin-bottom: 2%;" type="search" placeholder="..." />
+                    <div class="info_row">
+                        <div>
+                            <p class="title">موضوع</p>
+                            <div class="input_text">
+                                <input name="TextTask" type="text" class="input_text_input" placeholder="..." maxlength="65" autocomplete="off" />
+                                <img src="assets/image/icon/ic_star.svg" alt="#">
+                            </div>
+                        </div>
+                        <div>
+                            <p class="title">سطح فوریت</p>
+                            <div class="input_text">
+                                <select class="combo_box" name="status" id="status">
+                                    <option value="1">عادی</option>
+                                    <option value="2">فوری</option>
+                                    <option value="3">ویژه</option>
+                                </select>
+                                <img src="assets/image/icon/ic_star.svg" alt="#">
+                            </div>
 
-                <div class="box_item">
-                    <?php $item = SelectTag();
-                        if ($item) {
-                            foreach ($item as $ValueSearchTag) { ?>
-                                <div class="item_search_box" id="<?= $ValueSearchTag->TagName; ?>" onclick="GetTagName(this.id)">
-                                    <?= $ValueSearchTag->TagName ?>
-                                    <!-- <span class="close">&times;</span> -->
-                                </div>
-                    <?php }
-                        }
-                    ?>
+                        </div>
+
+                    </div>
+
+                    <div class="info_row">
+
+                        <div>
+                            <p class="title">توضیحات</p>
+                            <div class="input_text">
+                                <textarea name="Description" type="text" class="input_text_input" style="min-height: 10rem;" placeholder="..." autocomplete="off"></textarea>
+                                <img src="assets/image/icon/ic_star.svg" alt="#">
+                            </div>
+                        </div>
+
+
+
+                        <div>
+                            <p class="title">تگ افراد مرتبط</p>
+                            <div class="input_text">
+                                <input name="SearchAddTag" id="SearchTagName" type="search" class="input_text_input" placeholder="..." />
+                                <img src="assets/image/icon/ic_at_sign.svg" alt="#" id="current-pass-eye" onclick="CurrentPass()">
+                            </div>
+
+                            <div class="box_item">
+                                <?php $item = SelectTag();
+                                if ($item) {
+                                    foreach ($item as $ValueSearchTag) { ?>
+                                        <div class="item_search_box" id="<?= $ValueSearchTag->TagName; ?>" onclick="GetTagName(this.id)">
+                                            <?= $ValueSearchTag->TagName ?>
+                                        </div>
+                                <?php }
+                                }
+                                ?>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="info_row row_btn">
+
+                        <input type="submit" name="AddTask" class="input_btn" value="ثبت تسک" />
+                        <input class="input_btn_strok_cancel" type="button" onclick="GoToIndex()" value="بازگشت" />
+
+                    </div>
+
                 </div>
 
-                <input class="input_button active" type="submit" name="AddTask" value="ثبت" />
-                <input class="input_button back" type="button" onclick="GoToIndex()" name="back" value="بازگشت" />
-
-                </form>
-            </div>
+            </form>
 
         </div>
-        <div class="clear"></div>
+
     </div>
-
-    <div class="clear"></div>
-
 </body>
 
-
-
 <script src="assets/js/script.js"></script>
-
 
 </html>

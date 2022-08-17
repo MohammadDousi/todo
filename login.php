@@ -31,13 +31,13 @@
 
                 <p class="title">تلفن همراه</p>
                 <div class="input_text">
-                    <input type="text" name="mobile" placeholder="مثال: 09301231121" autocomplete="off" maxlength="11" required autofocus />
+                    <input type="text" name="mobile" class="input_text_input" placeholder="مثال: 09301231121" autocomplete="off" maxlength="11" required autofocus />
                     <img src="assets/image/icon/ic_mobile.svg" alt="">
                 </div>
 
                 <p class="title">رمز عبور</p>
                 <div class="input_text">
-                    <input type="password" name="pass" id="pass" placeholder="********" required autocomplete="off" />
+                    <input type="password" name="pass" id="pass" class="input_text_input" placeholder="********" required autocomplete="off" />
                     <img src="assets/image/icon/ic_eye.svg" id="eye-pass" onclick="ShowPass()" alt="">
                 </div>
 

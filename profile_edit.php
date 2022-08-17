@@ -56,22 +56,22 @@ if (!isset($_SESSION['UserOk'])) {
                         <div>
                             <p class="title">نام</p>
                             <div class="input_text">
-                                <p class="input-text-profile"><?php echo $_SESSION['UserOk']['name']; ?></p>
+                                <p class="input_text_input"><?php echo $_SESSION['UserOk']['name']; ?></p>
                                 <img src="assets/image/icon/ic_user.svg" alt="#">
                             </div>
                         </div>
                         <div>
                             <p class="title">موبایل</p>
                             <div class="input_text">
-                                <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" type="text" placeholder="..." maxlength="11" autocomplete="off" />
+                                <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input_text_input" type="text" placeholder="..." maxlength="11" autocomplete="off" />
                                 <img src="assets/image/icon/ic_lock.svg" alt="#">
                             </div>
                         </div>
                         <div>
                             <p class="title">تگ نیم</p>
                             <div class="input_text">
-                                <p class="input-text-profile"><?php echo $_SESSION['UserOk']['tagname']; ?></p>
-                                <img src="assets/image/icon/ic_at-sign.svg" alt="#">
+                                <p class="input_text_input"><?php echo $_SESSION['UserOk']['tagname']; ?></p>
+                                <img src="assets/image/icon/ic_at_sign.svg" alt="#">
                             </div>
                         </div>
                     </div>
@@ -80,21 +80,21 @@ if (!isset($_SESSION['UserOk'])) {
                         <div>
                             <p class="title">رمز عبور فعلی</p>
                             <div class="input_text">
-                                <input name="current-pass" id="current-pass" type="password" placeholder="********" maxlength="20" autocomplete="off" />
+                                <input name="current-pass" id="current-pass" class="input_text_input" type="password" placeholder="********" maxlength="20" autocomplete="off" />
                                 <img src="assets/image/icon/ic_eye.svg" alt="#" id="current-pass-eye" onclick="CurrentPass()">
                             </div>
                         </div>
                         <div>
                             <p class="title">رمز عبور جدید</p>
                             <div class="input_text">
-                                <input name="new-pass" id="new-pass" type="password" placeholder="********" maxlength="20" autocomplete="off" />
+                                <input name="new-pass" id="new-pass" class="input_text_input" type="password" placeholder="********" maxlength="20" autocomplete="off" />
                                 <img src="assets/image/icon/ic_eye.svg" alt="#" id="new-pass-eye" onclick="NewPass()">
                             </div>
                         </div>
                         <div>
                             <p class="title">تکرار رمز عبور جدید</p>
                             <div class="input_text">
-                                <input name="new-pass-repet" id="new-pass-repet" type="password" placeholder="********" maxlength="20" autocomplete="off" />
+                                <input name="new-pass-repet" id="new-pass-repet" class="input_text_input" type="password" placeholder="********" maxlength="20" autocomplete="off" />
                                 <img src="assets/image/icon/ic_eye.svg" alt="#" id="new-pass-repet-eye" onclick="NewPassRepet()">
                             </div>
                         </div>

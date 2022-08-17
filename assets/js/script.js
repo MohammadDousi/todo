@@ -13,7 +13,7 @@ function GoToInsert() {
 }
 
 function GoToEdit(Id) {
-  location.assign("edit2.php?Id=" + Id);
+  location.assign("edit.php?Id=" + Id);
 }
 
 function GoToProfile() {

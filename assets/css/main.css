@@ -101,7 +101,7 @@ body {
     display: flex;
 }
 
-.input_text>input {
+.input_text_input {
     width: 100%;
     float: right;
     font-size: 14px;
@@ -110,19 +110,6 @@ body {
     background: #ffffff;
     cursor: text;
     transition: var(--transition);
-    direction: ltr;
-}
-
-.input_text>p {
-    width: 100%;
-    float: right;
-    font-size: 14px;
-    font-weight: normal;
-    text-align: right;
-    background: #ffffff;
-    cursor: text;
-    transition: var(--transition);
-    direction: ltr;
 }
 
 .input_text>img {

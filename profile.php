@@ -42,21 +42,21 @@ if (!isset($_SESSION['UserOk'])) {
                     <div>
                         <p class="title">نام</p>
                         <div class="input_text">
-                            <p><?php echo $_SESSION['UserOk']['name']; ?></p>
+                            <p class="input_text_input"><?php echo $_SESSION['UserOk']['name']; ?></p>
                             <img src="assets/image/icon/ic_user.svg" alt="#">
                         </div>
                     </div>
                     <div>
                         <p class="title">رمز عبور</p>
                         <div class="input_text">
-                            <p><?php echo $_SESSION['UserOk']['password']; ?></p>
+                            <p class="input_text_input"><?php echo $_SESSION['UserOk']['password']; ?></p>
                             <img src="assets/image/icon/ic_lock.svg" alt="#">
                         </div>
                     </div>
                     <div>
                         <p class="title">موبایل</p>
                         <div class="input_text">
-                            <p><?php echo GroupDigi_Mobile($_SESSION['UserOk']['mobile']); ?></p>
+                            <p class="input_text_input"><?php echo GroupDigi_Mobile($_SESSION['UserOk']['mobile']); ?></p>
                             <img src="assets/image/icon/ic_mobile.svg" alt="#">
                         </div>
                     </div>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['UserOk'])) {
                     <div>
                         <p class="title">آخرین بازدید</p>
                         <div class="input_text">
-                            <p><?php echo $_SESSION['UserOk']['lastseen']; ?></p>
+                            <p class="input_text_input"><?php echo $_SESSION['UserOk']['lastseen']; ?></p>
                             <img src="assets/image/icon/ic_eye.svg" alt="#">
                         </div>
                     </div>
@@ -74,8 +74,8 @@ if (!isset($_SESSION['UserOk'])) {
                     <div>
                         <p class="title">تگ نیم</p>
                         <div class="input_text">
-                            <p><?php echo $_SESSION['UserOk']['tagname']; ?></p>
-                            <img src="assets/image/icon/ic_at-sign.svg" alt="#">
+                            <p class="input_text_input"><?php echo $_SESSION['UserOk']['tagname']; ?></p>
+                            <img src="assets/image/icon/ic_at_sign.svg" alt="#">
                         </div>
                     </div>
                     <div></div>
