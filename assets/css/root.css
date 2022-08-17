@@ -7,12 +7,6 @@
   --colorAccent: var(--amber500);
   /* amber500 */
 
-  /*  login bg */
-  --colorGradiant: linear-gradient(340deg, var(--red500) 0%, var(--blue500) 100%);
-  --colorGradiantrotate: linear-gradient(180deg, var(--red500) 0%, var(--blue500) 100%);
-
-  /* color header footer */
-  --colorHeaderFooter: linear-gradient(10deg, var(--red500) -100%, var(--blue500) 200%);
 
   --NColor1:#DD3333;
   --NColor2:#04102b;

@@ -10,7 +10,7 @@ if (!isset($_SESSION['UserOk'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/task.css">
-    <title>ویرایش اطلاعات</title>
+    <title>ایجاد تسک جدید</title>
 </head>
 
 <body>
