@@ -95,7 +95,7 @@ item search box
 
 .item_search_box:hover {
     cursor: pointer;
-    background-color: var(--NColor2);
+    background-color: var(--NColor1);
     border-radius: 8px;
     padding: 10px;
     color: #ffffff;

@@ -140,24 +140,19 @@ function AddTask()
 
     global $con;
 
-    if (isset($_POST['TextTask']) && (isset($_POST['usual']) || isset($_POST['force']) || isset($_POST['vforce']))) {
+    if (isset($_POST['TextTask']) && (isset($_POST['Level']))) {
 
         $text = $_POST['TextTask'];
         $description = $_POST['Description'];
-        if (isset($_POST['usual'])) {
-            $level = 0;
-        } else if (isset($_POST['force'])) {
-            $level = 1;
-        } else if (isset($_POST['vforce'])) {
-            $level = 2;
-        }
-
+        $level = $_POST['Level'];
         $tag = $_POST['SearchAddTag'];
+
 
         $query = 'INSERT INTO dbtask VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
-        $stmt->execute([0, $text, $description, $_SESSION['UserOk']['id'], 0, 0, 3, $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag]);
+        $stmt->execute([0, $text, $description, $_SESSION['UserOk']['id'], 0, 0, 3, 
+                        $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag]);
 
         if ($stmt) {
             return true;

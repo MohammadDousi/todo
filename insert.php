@@ -56,7 +56,7 @@ if (!isset($_SESSION['UserOk'])) {
                         <div>
                             <p class="title">سطح فوریت</p>
                             <div class="input_text">
-                                <select class="combo_box" name="status" id="status">
+                                <select class="combo_box" name="Level">
                                     <option value="1">عادی</option>
                                     <option value="2">فوری</option>
                                     <option value="3">ویژه</option>
