@@ -214,7 +214,21 @@ input file
     border-color: var(--NColor2);
 }
 
+/* ///////////////////////////////////////////////
+    combo box
+/////////////////////////////////////////////// */
 
+.combo_box {
+    width: 100%;
+    float: right;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: right;
+    background: #ffffff;
+    cursor: text;
+    transition: var(--transition);
+    direction: ltr;
+} 
 
 
 
@@ -275,21 +289,3 @@ input radio
 } */
 
 
-/* ///////////////////////////////////////////////
-    combo box
-/////////////////////////////////////////////// */
-/* 
-.combo_box {
-    width: 100%;
-    height: auto;
-    background: #ffffff;
-    padding: 10px 15px 10px 15px;
-    border-radius: 8px;
-    border: 2px solid var(--bluegray100);
-    font-size: 14px;
-    text-align: right;
-    float: right;
-    margin-bottom: 5%;
-    font-weight: normal;
-    transition: var(--transition);
-} */

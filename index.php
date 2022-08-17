@@ -352,8 +352,6 @@ if (!isset($_SESSION['UserOk'])) {
                 <div class="clear"></div>
             </div>
         </div>
-
-        <div class="clear"></div>
     </div>
 
     <?php require_once "footer.php"; ?>

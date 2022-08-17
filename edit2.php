@@ -9,8 +9,9 @@ if (!isset($_SESSION['UserOk'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/insert.css">
     <link rel="stylesheet" href="assets/css/profile.css">
-    <title>ویرایش اطلاعات</title>
+    <title>ویرایش</title>
 </head>
 
 <body>
@@ -27,24 +28,11 @@ if (!isset($_SESSION['UserOk'])) {
 
             <form action="" method="POST" enctype='multipart/form-data'>
 
-                <div class="info-right">
-
-                    <img id="img" src="/assets/image/pic_user/<?php echo $_SESSION['UserOk']['avator']; ?>" alt="">
-
-                    <div class="input_file">
-                        <input id="imgInp" name="Image" type="file" class="inputfile" accept="image/*" />
-                        <svg xmlns="http://www.w3.org/2000/svg" style="padding-top: 2%;" width="20" height="17" viewBox="0 0 20 17">
-                            <path fill="#04102b" d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
-                        </svg>
-                        <label for="imgInp" onclick="onchangeImg()">انتخاب تصویر</label>
-                    </div>
-                </div>
-
                 <div class="info-left">
 
                     <div style="width: 100%;">
                         <div style="float: right;">
-                            <p class="title_title">ویرایش اطلاعات کاربری</p>
+                            <p class="title_title">ویرایش تسک</p>
                             <div class="lines">
                                 <div class="line1"></div>
                                 <div class="line1 line2"></div>
@@ -54,34 +42,54 @@ if (!isset($_SESSION['UserOk'])) {
 
                     <div class="info-row">
                         <div>
-                            <p class="title">نام</p>
+                            <p class="title">موضوع</p>
                             <div class="input_text">
-                                <p class="input-text-profile"><?php echo $_SESSION['UserOk']['name']; ?></p>
-                                <img src="assets/image/icon/ic_user.svg" alt="#">
+                                <input name="TextTask" value="" type="text" placeholder="..." maxlength="65" autocomplete="off" required />
+                                <img src="assets/image/icon/ic_lock.svg" alt="#">
                             </div>
+
                         </div>
                         <div>
-                            <p class="title">موبایل</p>
+                            <p class="title">توضیحات</p>
                             <div class="input_text">
-                                <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" type="text" placeholder="..." maxlength="11" autocomplete="off" />
+                                <input name="Description" value="" type="text" placeholder="..." maxlength="65" autocomplete="off" required />
                                 <img src="assets/image/icon/ic_lock.svg" alt="#">
                             </div>
                         </div>
                         <div>
-                            <p class="title">تگ نیم</p>
+                            <p class="title">وضعیت</p>
+
                             <div class="input_text">
-                                <p class="input-text-profile"><?php echo $_SESSION['UserOk']['tagname']; ?></p>
-                                <img src="assets/image/icon/ic_at-sign.svg" alt="#">
+                                <select class="combo_box" name="status" id="status">
+                                    <?php
+                                    $item = PerUser();
+                                    if ($item) {
+                                        foreach ($item as $value) { ?>
+                                            <?php if ($value->Design) { ?><option value="4">در حال طراحی</option><?php } ?>
+                                            <?php if ($value->VideoEdit) { ?><option value="5">در حال تدوین</option><?php } ?>
+                                            <?php if ($value->ADesign) { ?><option value="6">اتمام طراحی</option><?php } ?>
+                                            <?php if ($value->AVideo) { ?><option value="7">اتمام تدوین</option><?php } ?>
+                                            <?php if ($value->End) { ?><option value="8">تمام شده</option><?php } ?>
+                                            <?php if ($value->Edit) { ?><option value="9">ویرایش</option><?php } ?>
+                                            <?php if ($value->Error) { ?><option value="10">خطا ، نیاز به طراحی و یا تدوین مجدد</option><?php } ?>
+
+                                    <?php }
+                                    } ?>
+                                </select>
+                                 <img src="assets/image/icon/ic_lock.svg" alt="#">
+
                             </div>
+
+
                         </div>
                     </div>
 
                     <div class="info-row">
                         <div>
-                            <p class="title">رمز عبور فعلی</p>
+                            <p class="title">تگ افراد مرتبط</p>
                             <div class="input_text">
-                                <input name="current-pass" id="current-pass" type="password" placeholder="********" maxlength="20" autocomplete="off" />
-                                <img src="assets/image/icon/ic_eye.svg" alt="#" id="current-pass-eye" onclick="CurrentPass()">
+                                <input name="SearchAddTag" id="SearchTagName" value="" type="text" placeholder="..." autocomplete="off" />
+                                <img src="assets/image/icon/ic_lock.svg" alt="#">
                             </div>
                         </div>
                         <div>
@@ -112,7 +120,7 @@ if (!isset($_SESSION['UserOk'])) {
             </form>
 
         </div>
-        
+
     </div>
     <div class="clear"></div>
 </body>

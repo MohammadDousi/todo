@@ -5,37 +5,34 @@
 .content {
     width: 100%;
     height: 100%;
-    background: var(--colorHeaderFooter);
     display: flex;
-    flex-wrap: nowrap;
     align-content: center;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+    padding: 0% 4%;
 }
 
-.content_new_task {
+.info {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
-    justify-content: center;
-    overflow: hidden;
-    background-color: #fff;
-    border-radius: 8px;
+    align-items: flex-start;
+    background: var(--NColor4);
+    padding: 2%;
+    border-radius: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 0 30px rgba(38, 50, 56, 0.05);
 }
+
+.info-left {
+    width: 100%;
+}
+
 
 .box {
     width: 100%;
     height: 100%;
     padding: 2% 5%;
-}
-
-.title{
-    width: 100%;
-    height: auto;
-    font-size: 16px;
-    text-align: right;
-    float: right;
-    margin-bottom: 2%;
 }
 
 /* ///////////////////////////////////////////////

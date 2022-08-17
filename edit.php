@@ -13,6 +13,7 @@ if (!isset($_SESSION['UserOk'])) {
 </head>
 
 <body>
+    <?php require_once "header.php"; ?>
 
     <?php
     if (isset($_POST['EditTask'])) {
@@ -33,49 +34,71 @@ if (!isset($_SESSION['UserOk'])) {
     } ?>
 
     <div class="content">
-        <div class="content_new_task">
-            <div class="box">
-                <?php if (isset($_GET['Id'])) {
-                    $item = GetItemSingle($_GET['Id']);
-                    if ($item) {
-                        foreach ($item as $value) { ?>
-                            <form method="POST" action="">
-                                <p class="title">موضوع</p>
-                                <input name="TextTask" value="<?= $value->Text ?>" class="input_text" type="text" placeholder="..." maxlength="65" autocomplete="off" />
 
-                                <p class="title">توضیحات</p>
-                                <textarea name="Description" class="input_text input_textarea" type="text" placeholder="..." autocomplete="off"><?= $value->Description ?></textarea>
+        <div class="info">
 
-                                <p class="title">وضعیت</p>
-                                <select class="combo_box" name="status" id="status">
-                                    <?php
-                                    $item = PerUser();
-                                    if ($item) {
-                                        foreach ($item as $value) { ?>
-                                            <?php if ($value->Design) { ?><option value="4">در حال طراحی</option><?php } ?>
-                                            <?php if ($value->VideoEdit) { ?><option value="5">در حال تدوین</option><?php } ?>
-                                            <?php if ($value->ADesign) { ?><option value="6">اتمام طراحی</option><?php } ?>
-                                            <?php if ($value->AVideo) { ?><option value="7">اتمام تدوین</option><?php } ?>
-                                            <?php if ($value->End) { ?><option value="8">تمام شده</option><?php } ?>
-                                            <?php if ($value->Edit) { ?><option value="9">ویرایش</option><?php } ?>
-                                            <?php if ($value->Error) { ?><option value="10">خطا ، نیاز به طراحی و یا تدوین مجدد</option><?php } ?>
-                                            
-                                    <?php }
-                                    } ?>
-                                </select>
-                    <?php }
-                    }
-                } ?>
+            <div style="width: 100%;">
+                <div style="float: right;">
+                    <p class="title_title"> ویرایش تسک </p>
+                    <div class="lines">
+                        <div class="line1"></div>
+                        <div class="line1 line2"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="box">
+            <?php if (isset($_GET['Id'])) {
+                $item = GetItemSingle($_GET['Id']);
+                if ($item) {
+                    foreach ($item as $value) { ?>
+                        <form method="POST" action="">
+
+                            <p class="title">موضوع</p>
+                            <div class="input_text">
+                                <input name="TextTask" value="<?= $value->Text ?>" type="text" placeholder="..." maxlength="65" autocomplete="off" required />
+                                <img src="assets/image/icon/ic_lock.svg" alt="#">
+                            </div>
+
+                            <p class="title">توضیحات</p>
+                            <div class="input_text">
+                                <input name="Description" value="<?= $value->Description ?>" type="text" placeholder="..." maxlength="65" autocomplete="off" required />
+                                <img src="assets/image/icon/ic_lock.svg" alt="#">
+                            </div>
+
+
+                            <p class="title">وضعیت</p>
+                            <select class="combo_box" name="status" id="status">
+                                <?php
+                                $item = PerUser();
+                                if ($item) {
+                                    foreach ($item as $value) { ?>
+                                        <?php if ($value->Design) { ?><option value="4">در حال طراحی</option><?php } ?>
+                                        <?php if ($value->VideoEdit) { ?><option value="5">در حال تدوین</option><?php } ?>
+                                        <?php if ($value->ADesign) { ?><option value="6">اتمام طراحی</option><?php } ?>
+                                        <?php if ($value->AVideo) { ?><option value="7">اتمام تدوین</option><?php } ?>
+                                        <?php if ($value->End) { ?><option value="8">تمام شده</option><?php } ?>
+                                        <?php if ($value->Edit) { ?><option value="9">ویرایش</option><?php } ?>
+                                        <?php if ($value->Error) { ?><option value="10">خطا ، نیاز به طراحی و یا تدوین مجدد</option><?php } ?>
+
+                                <?php }
+                                } ?>
+                            </select>
+
+                <?php }
+                }
+            } ?>
+
                 <?php if (isset($_GET['Id'])) {
                     $item = GetItemSingle($_GET['Id']);
                     if ($item) {
                         foreach ($item as $value) { ?>
 
-                            <p class="title">تگ افراد مرتبط</p>
-                            <input name="SearchAddTag" id="SearchTagName" value="<?= $value->Tag ?>" class="input_text" style="margin-bottom: 2%;" type="search" placeholder="..." />
+
+                            <p class="title">>تگ افراد مرتبط</p>
+                            <div class="input_text">
+                                <input name="SearchAddTag" id="SearchTagName" value="<?= $value->Tag ?>" type="text" placeholder="..." autocomplete="off" />
+                                <img src="assets/image/icon/ic_lock.svg" alt="#">
+                            </div>
 
                             <div class="box_item">
                                 <?php $item = SelectTag();
@@ -89,19 +112,22 @@ if (!isset($_SESSION['UserOk'])) {
                                 ?>
                             </div>
 
-                            <input class="input_button active" type="submit" name="EditTask" value="ویرایش" />
-                            <input class="input_button delete" type="submit" name="DelTask" value="حذف" />
-                            <input class="input_button back" type="button" onclick="GoToIndex()" name="back" value="بازگشت" />
+                            <div class="info-row row-btn">
 
-                            </form>
+                                <input type="submit" name="EditTask" class="input_btn" value="بروزرسانی اطلاعات" />
+                                <input type="submit" name="DelTask" class="input_btn" value="حذف" />
+                                <input class="input_btn_strok_cancel" type="button" onclick="GoToIndex()" value="بازگشت" />
 
-                <?php }
+                            </div>
+
+                        </form>
+
+            <?php }
                     }
                 } ?>
-            </div>
 
         </div>
-        <div class="clear"></div>
+
     </div>
     <div class="clear"></div>
 </body>

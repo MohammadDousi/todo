@@ -13,7 +13,7 @@ function GoToInsert() {
 }
 
 function GoToEdit(Id) {
-  location.assign("edit.php?Id=" + Id);
+  location.assign("edit2.php?Id=" + Id);
 }
 
 function GoToProfile() {
@@ -114,13 +114,13 @@ function HeaderAddress() {
     case "profile":
       show = "صفحه اصلی / پروفایل";
       break;
-    case "profile-edit":
+    case "profile_edit":
       show = "صفحه اصلی / پروفایل / ویرایش اطلاعات";
       break;
-    case "insert.php":
+    case "insert":
       show = "صفحه اصلی / تسک جدید";
       break;
-    case "edit.php":
+    case "edit":
       show = "صفحه اصلی / ویرایش تسک";
       break;
   }
