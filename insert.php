@@ -83,7 +83,7 @@ if (!isset($_SESSION['UserOk'])) {
                         <div>
                             <p class="title">تگ افراد مرتبط</p>
                             <div class="input_text">
-                                <input name="SearchAddTag" id="SearchTagName" type="search" class="input_text_input" placeholder="..." />
+                                <input name="SearchAddTag" id="SearchTagName" type="search" class="input_text_input" placeholder="..." autocomplete="off" />
                                 <img src="assets/image/icon/ic_at_sign.svg" alt="#" id="current-pass-eye" onclick="CurrentPass()">
                             </div>
 
