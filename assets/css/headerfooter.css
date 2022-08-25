@@ -184,13 +184,12 @@ dropdown
     float: right;
     position: absolute;
     bottom: 0;
-    background: var(--NColor3);
+    background: var(--bluegray50);
 }
 
 .copyright {
     margin-left: 4%;
     left: 0;
-    color: #fff;
     font-size: 12px;
     font-weight: normal;
     position: absolute;
