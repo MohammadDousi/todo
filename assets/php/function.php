@@ -348,7 +348,7 @@ function ProfileEdit()
             $Size = $_FILES['Image']['size'];
             $Temp = $_FILES['Image']['tmp_name'];
 
-            $upload_path = $_SERVER['DOCUMENT_ROOT'] . "assets/image/pic_user/";
+            $upload_path = $_SERVER['DOCUMENT_ROOT'] . "/assets/image/pic_user/";
 
             if ($Size == 0 || null || "") {
                 $File_image = $_SESSION['UserOk']['avator'];
