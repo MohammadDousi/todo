@@ -1,10 +1,18 @@
 .content {
     width: 100%;
-    height: 100%;
+    height: 34rem;
     display: flex;
     align-items: flex-start;
     flex-wrap: nowrap;
-    padding: 0% 4%;
+    padding: 0 4% 1rem 4%;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
 }
 
 /* /////////////////////////////////// 
