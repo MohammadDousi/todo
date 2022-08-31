@@ -142,7 +142,7 @@ body {
     transition: var(--transition);
 }
 
-.box_task_status {
+/* .box_task_status {
     width: 1.5%;
     height: 100%;
     border-radius: 8px 0px 0px 8px;
@@ -173,7 +173,7 @@ body {
 
 .status_error {
     background-color: var(--red500);
-}
+} */
 
 .box_task_text {
     padding: 5% 5%;
@@ -188,6 +188,7 @@ body {
     font-style: normal;
     text-align: right;
     float: right;
+    color: var(--NColor2);
 }
 
 .description_task {
@@ -197,20 +198,35 @@ body {
     font-weight: 500;
     text-align: right;
     float: right;
-    color: var(--bluegray500);
+    color: var(--NColor2);
+    opacity: 0.5;
     margin-top: 1%;
 }
 
 .date_create_task {
-    width: 100%;
-    height: auto;
     font-size: 12px;
     font-weight: 500;
     text-align: left;
     float: left;
-    color: var(--bluegray500);
-    margin-top: 1%;
+    color: var(--NColor3);
+    margin-top: 1.5rem;
 }
+
+.status_task {
+    font-size: 12px;
+    font-weight: 500;
+    text-align: right;
+    float: right;
+    margin-top: 1.5rem;
+}
+
+.status_green {
+    color: var(--green700);
+}
+
+.status_gray {
+    color: var(--NColor3);
+} 
 
 .red {
     color: var(--red500);

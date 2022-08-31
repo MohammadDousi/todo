@@ -152,84 +152,30 @@ if (!isset($_SESSION['UserOk'])) {
                 if ($item) {
                     foreach ($item as $value) { ?>
                         <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
-                            <?php switch ($value->Status) {
-                                case "4": ?>
-                                    <div class="box_task_status status_design"></div>
-                                <?php
-                                    break;
-                                case "5": ?>
-                                    <div class="box_task_status status_5"></div>
-                                <?php
-                                    break;
-                                case "6": ?>
-                                    <div class="box_task_status status_accept"></div>
-                                <?php
-                                    break;
-                                case "7": ?>
-                                    <div class="box_task_status status_edit"></div>
-                            <?php
-                                    break;
-                            }             ?>
 
                             <div class="box_task_text">
                                 <p class="text_task"><?= $value->Text; ?></p>
 
-                                <p class="description_task"><?= $value->Description; ?></p>
+                                <p class="description_task"><?= ReadMore($value->Description); ?></p>
 
-                                <?php switch ($value->Level) {
-                                    case "0": ?>
-                                        <p class="date_create_task">اولویت: عادی</p>
+                                <?php switch ($value->Status) {
+                                    case "4": ?>
+                                        <p class="status_task status_gray">وضعیت:</p>
+                                        <p class="status_task status_green">در حال طراحی</p>
                                     <?php break;
-                                    case "1": ?>
-                                        <p class="date_create_task">اولویت: فوری</p>
+                                    case "5": ?>
+                                        <p class="status_task status_gray">وضعیت:</p>
+                                        <p class="status_task status_green">در حال تدوین</p>
                                     <?php break;
-                                    case "2": ?>
-                                        <p class="date_create_task">اولویت: فوق العاده</p>
+                                    case "6": ?>
+                                        <p class="status_task status_gray">وضعیت:</p>
+                                        <p class="status_task status_green">اتمام طراحی</p>
+                                    <?php break;
+                                    case "7": ?>
+                                        <p class="status_task status_gray">وضعیت:</p>
+                                        <p class="status_task status_green">اتمام تدوین</p>
                                 <?php break;
                                 } ?>
-
-
-                                <?php $id = ($value->Maker);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">سازنده: <?= $valueUser->Name ?></p>
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-
-
-                                <?php
-                                $id = ($value->Designer);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">طراح: <?= $valueUser->Name ?></p>
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-                                </p>
-
-                                <?php
-                                $id = ($value->Editor);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">ادیتور: <?= $valueUser->Name ?></p>
-
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-                                </p>
 
                                 <p class="date_create_task">
                                     <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday

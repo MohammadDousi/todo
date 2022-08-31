@@ -552,3 +552,12 @@ function GroupDigi_Mobile($mobile)
 
     return $m1 . " " . $m2 . " " . $m3 . " " . $m4;
 }
+
+function ReadMore($value)
+{
+    if (strlen($value) >= 50) {
+        return mb_substr($value, 0, 48, 'utf-8') . '...';
+    } else {
+        return mb_substr($value, 0, 100, 'utf-8');
+    }
+}
