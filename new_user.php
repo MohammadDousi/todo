@@ -11,7 +11,6 @@
 
 <body>
 
-
     <?php
     require_once "header.php";
     if (isset($_POST['insert'])) {
@@ -27,7 +26,6 @@
             </div>
 
             <form action="" method="POST" enctype='multipart/form-data'>
-
 
                 <div class="info-left">
 
