@@ -112,6 +112,11 @@ body {
     transition: var(--transition);
 }
 
+.input_text > label {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
 .input_text>img {
     width: 1rem;
     float: left;
@@ -250,20 +255,21 @@ input file
 /* /* ///////////////////////////////////////////////
 input radio
 /////////////////////////////////////////////// */
-/* 
+
 .inputGroupRadio {
-    width: auto;
-    min-width: 22%;
-    height: auto;
+    width: 100%;
+    display: flex;
     float: right;
     text-align: right;
-    border-radius: 8px;
     padding: 10px;
-    margin-bottom: 5%;
-    cursor: pointer;
+    margin-bottom: 25px;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid var(--NColor3);
     transition: var(--transition);
-    border: 2px solid var(--bluegray100);
+    cursor: pointer;
 }
+
 
 .inputGroupRadio>input {
     cursor: pointer;
@@ -271,8 +277,8 @@ input radio
 
 .inputGroupRadio>label {
     cursor: pointer;
-    padding-right: 5px;
+    padding-right: 8px;
     font-size: 14px;
-} */
+}
 
 
