@@ -42,7 +42,7 @@
                         <div>
                             <p class="title">نام</p>
                             <div class="input_text">
-                                <input name="name" class="input_text_input" type="text" placeholder="..." autocomplete="off" />
+                                <input name="name" id="name" class="input_text_input" type="text" oninput="CreateTagName()" placeholder="..." autocomplete="off" />
                                 <img src="assets/image/icon/ic_user.svg" alt="#">
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                         <div>
                             <p class="title">تگ نیم</p>
                             <div class="input_text">
-                                <input name="tagname" class="input_text_input" type="text" placeholder="..." autocomplete="off" />
+                                <p name="tagname" id="tagname" class="input_text_input"></p>
                                 <img src="assets/image/icon/ic_at_sign.svg" alt="#">
                             </div>
                         </div>
@@ -151,5 +151,4 @@
     <div class="clear"></div>
 </body>
 <script src="assets/js/script.js"></script>
-
 </html>

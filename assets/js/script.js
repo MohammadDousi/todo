@@ -129,6 +129,18 @@ function HeaderAddress() {
 }
 
 /////////////////////////////////////
+////// new user page 
+//////////////////////////////////////
+
+function CreateTagName() {
+
+  let name = document.getElementById("name").value;
+  let tagname = "@" + name.replace(" ", "_");
+  document.getElementById("tagname").innerText = tagname;
+}
+
+
+/////////////////////////////////////
 ////// index page
 //////////////////////////////////////
 
