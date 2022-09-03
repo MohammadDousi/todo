@@ -96,9 +96,9 @@ function NewPassRepet() {
   };
 }
 
-/////////////////////////////////////
-////// change show addrees user in header
-//////////////////////////////////////
+/////////////////////////////////
+// change show addrees user in header
+//////////////////////////////////
 
 function HeaderAddress() {
   var show,
@@ -133,9 +133,8 @@ function HeaderAddress() {
 //////////////////////////////////////
 
 function CreateTagName() {
-
-  let name = document.getElementById("name").value;
-  let tagname = "@" + name.replace(" ", "_");
+  var name = document.getElementById("name").value;
+  var tagname = name.replace(/ /g, "_");
   document.getElementById("tagname").innerText = tagname;
 }
 
