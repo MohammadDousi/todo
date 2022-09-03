@@ -129,15 +129,18 @@ function HeaderAddress() {
 }
 
 /////////////////////////////////////
-////// new user page 
+////// new user page
 //////////////////////////////////////
 
 function CreateTagName() {
   var name = document.getElementById("name").value;
-  var tagname = name.replace(/ /g, "_");
-  document.getElementById("tagname").innerText = tagname;
+  if (name == "" || null) {
+    document.getElementById("tagname").innerText = "";
+  } else {
+    var tagname = "@" + name.replace(/ /g, "_");
+    document.getElementById("tagname").innerText = tagname;
+  }
 }
-
 
 /////////////////////////////////////
 ////// index page
