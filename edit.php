@@ -9,7 +9,7 @@ if (!isset($_SESSION['UserOk'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/task.css">
+    <link rel="stylesheet" href="assets/css/edit.css">
     <title>ایجاد تسک جدید</title>
 </head>
 
@@ -208,6 +208,34 @@ if (!isset($_SESSION['UserOk'])) {
             </form>
 
         </div>
+
+        <div class="history_edit">
+
+            <div style="width: 100%;">
+                <div style="float: right;">
+                    <p class="title_title">تاریخچه تغییرات</p>
+                    <div class="lines">
+                        <div class="line1"></div>
+                        <div class="line1 line2"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <?php $item = HistoryTask(($_GET['Id']));
+            if ($item) {
+                foreach ($item as $value) { ?>
+
+                    <div class="history">
+                        <span class="history_comment"><?= $value->Message; ?></span>
+                        <span class="history_date"><?= $value->Date; ?></span>
+                    </div>
+
+            <?php }
+            } ?>
+
+        </div>
+
 
     </div>
 </body>

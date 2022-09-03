@@ -151,8 +151,10 @@ function AddTask()
         $query = 'INSERT INTO dbtask VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $query  = str_replace(";", "", $query);
         $stmt = $con->prepare($query);
-        $stmt->execute([0, $text, $description, $_SESSION['UserOk']['id'], 0, 0, 3, 
-                        $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag]);
+        $stmt->execute([
+            0, $text, $description, $_SESSION['UserOk']['id'], 0, 0, 3,
+            $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag
+        ]);
 
         if ($stmt) {
             return true;
@@ -198,6 +200,8 @@ function EditTask()
         $text = $_POST['TextTask'];
         $Description = $_POST['Description'];
 
+        $message ="" ;
+
         $status = $_POST['status'];
         $tag = $_POST['SearchAddTag'];
 
@@ -241,6 +245,21 @@ function EditTask()
 
         if ($status) {
             $errors = $stmt->errorInfo();
+
+            $message = "ویرایش توسط " .$_SESSION['UserOk']['name']. " انجام شد." ;
+
+                $query = 'INSERT INTO dbhistory VALUES (?,?,?,?,?)';
+                $query  = str_replace(";", "", $query);
+                $stmt = $con->prepare($query);
+                $stmt->execute([
+                    0, $_SESSION['UserOk']['id'], $Id, $message  , jdate('Y/n/j-H:i')]);
+
+                if ($stmt) {
+                    return true;
+                } else {
+                    return false;
+                }
+
             // echo "UpdateData";
             return true;
         } else {
@@ -438,11 +457,10 @@ function ProfileEdit()
                 return false;
             }
             end:
-
         } else {
             echo "ErrorGetMobile";
         }
-    }else{
+    } else {
         echo "ErrorGetData";
     }
 }
@@ -541,6 +559,30 @@ function NewUser()
         echo "ErrorGetData";
     }
 }
+
+
+//////////////////////////////////
+////     new user
+//////////////////////////////////
+
+function HistoryTask($idtask)
+{
+
+    global $con;
+
+    $query = 'SELECT * FROM `dbhistory` Where `IdTask` = :id ORDER BY Id DESC';
+    $query  = str_replace(";", "", $query);
+    $stmt = $con->prepare($query);
+    $stmt->bindparam(':id', $idtask, PDO::PARAM_INT);
+    $stmt->execute();
+
+    if ($stmt) {
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    } else {
+        echo "Error";
+    }
+}
+
 
 function GroupDigi_Mobile($mobile)
 {
