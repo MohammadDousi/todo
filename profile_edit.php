@@ -63,7 +63,7 @@ if (!isset($_SESSION['UserOk'])) {
                         <div>
                             <p class="title">موبایل</p>
                             <div class="input_text">
-                                <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input_text_input" type="text" placeholder="..." maxlength="11" autocomplete="off" />
+                                <input name="mobile" value="<?php echo $_SESSION['UserOk']['mobile']; ?>" class="input_text_input dr_right" type="text" placeholder="..." maxlength="11" autocomplete="off" />
                                 <img src="assets/image/icon/ic_lock.svg" alt="#">
                             </div>
                         </div>

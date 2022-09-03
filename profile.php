@@ -1,7 +1,7 @@
 <?php require_once "assets/php/init.php";
-if (!isset($_SESSION['UserOk'])) {
-    header('location:login.php');
-}
+// if (!isset($_SESSION['UserOk'])) {
+//     header('location:login.php');
+// }
 ?>
 <html lang="en">
 
@@ -56,7 +56,7 @@ if (!isset($_SESSION['UserOk'])) {
                     <div>
                         <p class="title">موبایل</p>
                         <div class="input_text">
-                            <p class="input_text_input"><?php echo GroupDigi_Mobile($_SESSION['UserOk']['mobile']); ?></p>
+                            <p class="input_text_input dr_right"><?php echo GroupDigi_Mobile($_SESSION['UserOk']['mobile']); ?></p>
                             <img src="assets/image/icon/ic_mobile.svg" alt="#">
                         </div>
                     </div>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['UserOk'])) {
                     <div>
                         <p class="title">آخرین بازدید</p>
                         <div class="input_text">
-                            <p class="input_text_input"><?php echo $_SESSION['UserOk']['lastseen']; ?></p>
+                            <p class="input_text_input dr_right"><?php echo $_SESSION['UserOk']['lastseen']; ?></p>
                             <img src="assets/image/icon/ic_eye.svg" alt="#">
                         </div>
                     </div>
