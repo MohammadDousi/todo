@@ -156,7 +156,26 @@ function AddTask()
             $level, jdate('Y'), jdate('n'), jdate('j'), jdate('l'), jdate('H'), jdate('i'), $tag
         ]);
 
+        $last_id = $con->lastInsertId();
+
         if ($stmt) {
+
+            $message = "توسط " . $_SESSION['UserOk']['name'] . " آغاز شد.";
+
+            $query = 'INSERT INTO dbhistory VALUES (?,?,?,?,?)';
+            $query  = str_replace(";", "", $query);
+            $stmt = $con->prepare($query);
+            $stmt->execute([
+                0, $_SESSION['UserOk']['id'], $last_id, $message, jdate('Y/n/j-H:i')
+            ]);
+
+
+            if ($stmt) {
+                return true;
+            } else {
+                return false;
+            }
+
             return true;
         } else {
             return false;
@@ -200,7 +219,7 @@ function EditTask()
         $text = $_POST['TextTask'];
         $Description = $_POST['Description'];
 
-        $message ="" ;
+        $message = "";
 
         $status = $_POST['status'];
         $tag = $_POST['SearchAddTag'];
@@ -246,19 +265,20 @@ function EditTask()
         if ($status) {
             $errors = $stmt->errorInfo();
 
-            $message = "ویرایش توسط " .$_SESSION['UserOk']['name']. " انجام شد." ;
+            $message = "ویرایش توسط " . $_SESSION['UserOk']['name'] . " انجام شد.";
 
-                $query = 'INSERT INTO dbhistory VALUES (?,?,?,?,?)';
-                $query  = str_replace(";", "", $query);
-                $stmt = $con->prepare($query);
-                $stmt->execute([
-                    0, $_SESSION['UserOk']['id'], $Id, $message  , jdate('Y/n/j-H:i')]);
+            $query = 'INSERT INTO dbhistory VALUES (?,?,?,?,?)';
+            $query  = str_replace(";", "", $query);
+            $stmt = $con->prepare($query);
+            $stmt->execute([
+                0, $_SESSION['UserOk']['id'], $Id, $message, jdate('Y/n/j-H:i')
+            ]);
 
-                if ($stmt) {
-                    return true;
-                } else {
-                    return false;
-                }
+            if ($stmt) {
+                return true;
+            } else {
+                return false;
+            }
 
             // echo "UpdateData";
             return true;
