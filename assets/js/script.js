@@ -1,7 +1,8 @@
 function GetTagName(tag) {
   temp = document.getElementById("SearchTagName").value;
   result = temp.replace(tag, "");
-  document.getElementById("SearchTagName").value = result + "" + tag;
+  // document.getElementById("SearchTagName").value = result + "" + tag;
+  document.getElementById("SearchTagName").value = `$(result) $(tag)`;
 }
 
 function GoToIndex() {
