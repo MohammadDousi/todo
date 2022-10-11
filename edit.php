@@ -10,7 +10,7 @@ if (!isset($_SESSION['UserOk'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/edit.css">
-    <title>ایجاد تسک جدید</title>
+    <title>ویرایش تسک</title>
 </head>
 
 <body>
@@ -128,69 +128,6 @@ if (!isset($_SESSION['UserOk'])) {
 
                                 </div>
 
-                                <div class="info_row">
-
-                                    <div class="info_row">
-
-                                        <div>
-                                            <p class="title">سازنده تسک</p>
-                                            <div class="input_text">
-                                                <?php $id = ($value->Maker);
-                                                if ($id) {
-                                                    $item = GetUser($id);
-                                                    if ($item) {
-                                                        foreach ($item as $valueUser) { ?>
-                                                            <p class="input_text_input"><?= $valueUser->Name ?></p>
-                                                <?php }
-                                                    }
-                                                } else {
-                                                } ?>
-
-                                                <img src="assets/image/icon/ic_star.svg" alt="#">
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p class="title">طراح</p>
-                                            <div class="input_text">
-                                                <?php $id = ($value->Designer);
-                                                if ($id) {
-                                                    $item = GetUser($id);
-                                                    if ($item) {
-                                                        foreach ($item as $valueUser) { ?>
-                                                            <p class="input_text_input"><?= $valueUser->Name ?></p>
-                                                    <?php }
-                                                    }
-                                                } else { ?>
-                                                    <p class="input_text_input">مشخص نشده !</p>
-                                                <?php } ?>
-
-                                                <img src="assets/image/icon/ic_star.svg" alt="#">
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <p class="title">ادیتور</p>
-                                            <div class="input_text">
-                                                <?php $id = ($value->Editor);
-                                                if ($id) {
-                                                    $item = GetUser($id);
-                                                    if ($item) {
-                                                        foreach ($item as $valueUser) { ?>
-                                                            <p class="input_text_input"><?= $valueUser->Name ?></p>
-                                                    <?php }
-                                                    }
-                                                } else { ?>
-                                                    <p class="input_text_input">مشخص نشده !</p>
-                                                <?php } ?>
-
-                                                <img src="assets/image/icon/ic_star.svg" alt="#">
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
-                                </div>
                     <?php }
                         }
                     } ?>
@@ -209,7 +146,56 @@ if (!isset($_SESSION['UserOk'])) {
 
         </div>
 
-        <div class="history_edit">
+        <div class="side_right">
+
+            <div style="width: 100%;">
+                <div style="float: right;">
+                    <p class="title_title">اعضای گروه</p>
+                    <div class="lines">
+                        <div class="line1"></div>
+                        <div class="line1 line2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="name_group">
+                <?php $id = ($value->Maker);
+                if ($id) {
+                    $item = GetUser($id);
+                    if ($item) {
+                        foreach ($item as $valueUser) { ?>
+                            <p class="name_group_history"><span class=" title_name_group">سازنده :</span><?= $valueUser->Name ?></p>
+                    <?php }
+                    }
+                } else { ?>
+                    <p class="name_group_history"><span class=" title_name_group">سازنده :</span> مشخص نشده!</p>
+                <?php } ?>
+
+                <?php $id = ($value->Designer);
+                if ($id) {
+                    $item = GetUser($id);
+                    if ($item) {
+                        foreach ($item as $valueUser) { ?>
+                            <p class="name_group_history"><span class=" title_name_group">طراح :</span><?= $valueUser->Name ?></p>
+                    <?php }
+                    }
+                } else { ?>
+                    <p class="name_group_history"><span class=" title_name_group">طراح :</span>مشخص نشده!</p>
+                <?php } ?>
+
+                <?php $id = ($value->Editor);
+                if ($id) {
+                    $item = GetUser($id);
+                    if ($item) {
+                        foreach ($item as $valueUser) { ?>
+                            <p class="name_group_history"><span class=" title_name_group">ادیتور :</span><?= $valueUser->Name ?></p>
+                    <?php }
+                    }
+                } else { ?>
+                    <p class="name_group_history"><span class=" title_name_group">ادیتور :</span> مشخص نشده!</p>
+                <?php } ?>
+            </div>
+
 
             <div style="width: 100%;">
                 <div style="float: right;">
@@ -222,6 +208,8 @@ if (!isset($_SESSION['UserOk'])) {
             </div>
 
 
+            <div class="scroll">
+            <div class="history_edit">
             <?php $item = HistoryTask(($_GET['Id']));
             if ($item) {
                 foreach ($item as $value) { ?>
@@ -233,11 +221,13 @@ if (!isset($_SESSION['UserOk'])) {
 
             <?php }
             } ?>
-
+            </div>
+            </div>
+            
         </div>
 
-
     </div>
+
 </body>
 
 <script src="assets/js/script.js"></script>

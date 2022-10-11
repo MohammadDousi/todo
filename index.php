@@ -22,11 +22,7 @@ if (!isset($_SESSION['UserOk'])) {
         <div class="content_task_list">
 
             <div class="content_task_header">
-                <p>تسک لیست (<?php CountStartList(); ?>)</p>
-                <div class="new_task_btn" onclick="GoToInsert()">
-                    <p> تسک جدید</p>
-                    <img src="./assets/image/icon/ic_plus.svg" alt="">
-                </div>
+                <p> در حال انجام (<?php CountDoingList(); ?>)</p>
                 <div class="clear"></div>
             </div>
 
@@ -115,7 +111,7 @@ if (!isset($_SESSION['UserOk'])) {
                                         . " " . $value->Hour . ":" . $value->Min; ?>
                                 </p>
 
-                                <p class="date_create_task red">
+                                <p class="date_create_task status_blue">
                                     <?php switch ($value->Status) {
                                         case 10: ?> وجود خطا ، نیاز به هماهنگی بیشتر
                                         <?php break;
@@ -124,7 +120,9 @@ if (!isset($_SESSION['UserOk'])) {
                                     } ?>
                                 </p>
                             </div>
+
                         </div>
+
                     <?php }
                 } else { ?>
 
@@ -137,167 +135,185 @@ if (!isset($_SESSION['UserOk'])) {
                 <?php } ?>
                 <div class="clear"></div>
             </div>
+    </div>
+
+
+    <div class="content_task_list back_bluegray">
+
+        <div class="content_task_header">
+            <p> در حال انجام (<?php CountDoingList(); ?>)</p>
+            <div class="clear"></div>
         </div>
 
-        <div class="content_task_list back_bluegray">
-
-            <div class="content_task_header">
-                <p> در حال انجام (<?php CountDoingList(); ?>)</p>
-                <div class="clear"></div>
-            </div>
-
-            <div class="content_list_body">
-                <?php
-                $item = DoingList();
-                if ($item) {
-                    foreach ($item as $value) { ?>
-                        <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
-
-                            <div class="box_task_text">
-                                <p class="text_task"><?= $value->Text; ?></p>
-
-                                <p class="description_task"><?= ReadMore($value->Description); ?></p>
-
-                                <?php switch ($value->Status) {
-                                    case "4": ?>
-                                        <p class="status_task status_gray">وضعیت:</p>
-                                        <p class="status_task status_green">در حال طراحی</p>
-                                    <?php break;
-                                    case "5": ?>
-                                        <p class="status_task status_gray">وضعیت:</p>
-                                        <p class="status_task status_green">در حال تدوین</p>
-                                    <?php break;
-                                    case "6": ?>
-                                        <p class="status_task status_gray">وضعیت:</p>
-                                        <p class="status_task status_green">اتمام طراحی</p>
-                                    <?php break;
-                                    case "7": ?>
-                                        <p class="status_task status_gray">وضعیت:</p>
-                                        <p class="status_task status_green">اتمام تدوین</p>
-                                <?php break;
-                                } ?>
-
-                                <p class="date_create_task">
-                                    <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday
-                                        . " " . $value->Hour . ":" . $value->Min; ?>
-                                </p>
-
-                            </div>
-                        </div>
-                    <?php }
-                } else { ?>
-
-                    <div id="dont_data" class="box_dont_data">
-                        <img src="./assets/image/icon/ic_no_data.svg" />
-                        <p>داده ای یافت نشد !</p>
-                        <span>نه طراحی نه ادیت |:</span>
-                    </div>
-
-                <?php } ?>
-                <div class="clear"></div>
-            </div>
-        </div>
-
-        <div class="content_task_list">
-
-            <div class="content_task_header">
-                <p>تمام شده (<?php CountEndList(); ?>)</p>
-                <div class="clear"></div>
-            </div>
-
-            <div class="content_list_body">
-                <?php
-                $item = EndList();
-                if ($item) {
-                    foreach ($item as $value) { ?>
-                        <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
-                            <?php switch ($value->Status) {
-                                case "8": ?>
-                                    <div class="box_task_status status_accept"></div>
+        <div class="content_list_body">
+            <?php
+            $item = DoingList();
+            if ($item) {
+                foreach ($item as $value) { ?>
+                    <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
+                        <?php switch ($value->Status) {
+                            case "4": ?>
+                                <div class="box_task_status status_design"></div>
                             <?php
-                                    break;
+                                break;
+                            case "5": ?>
+                                <div class="box_task_status status_videoedit"></div>
+                            <?php
+                                break;
+                            case "6": ?>
+                                <div class="box_task_status status_accept"></div>
+                            <?php
+                            case "7": ?>
+                                <div class="box_task_status status_accept"></div>
+                        <?php
+                                break;
+                        } ?>
+
+                        <div class="box_task_text">
+                            <p class="text_task"><?= $value->Text; ?></p>
+
+                            <p class="description_task"><?= ReadMore($value->Description); ?></p>
+
+                            <?php switch ($value->Status) {
+                                case "4": ?>
+                                    <p class="status_task status_gray">وضعیت:</p>
+                                    <p class="status_task status_amber">در حال طراحی</p>
+                                <?php break;
+                                case "5": ?>
+                                    <p class="status_task status_gray">وضعیت:</p>
+                                    <p class="status_task status_purpole">در حال تدوین</p>
+                                <?php break;
+                                case "6": ?>
+                                    <p class="status_task status_gray">وضعیت:</p>
+                                    <p class="status_task status_green">اتمام طراحی</p>
+                                <?php break;
+                                case "7": ?>
+                                    <p class="status_task status_gray">وضعیت:</p>
+                                    <p class="status_task status_green">اتمام تدوین</p>
+                            <?php break;
                             } ?>
 
-                            <div class="box_task_text">
-                                <p class="text_task"><?= $value->Text; ?></p>
+                            <p class="date_create_task">
+                                <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday
+                                    . " " . $value->Hour . ":" . $value->Min; ?>
+                            </p>
 
-                                <p class="description_task"><?= $value->Description; ?></p>
-
-                                <?php switch ($value->Level) {
-                                    case "0": ?>
-                                        <p class="date_create_task">اولویت: عادی</p>
-                                    <?php break;
-                                    case "1": ?>
-                                        <p class="date_create_task">اولویت: فوری</p>
-                                    <?php break;
-                                    case "2": ?>
-                                        <p class="date_create_task">اولویت: فوق العاده</p>
-                                <?php break;
-                                } ?>
-
-
-                                <?php $id = ($value->Maker);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">سازنده: <?= $valueUser->Name ?></p>
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-
-
-                                <?php
-                                $id = ($value->Designer);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">طراح: <?= $valueUser->Name ?></p>
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-                                </p>
-
-                                <?php
-                                $id = ($value->Editor);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">ادیتور: <?= $valueUser->Name ?></p>
-
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-                                </p>
-
-                                <p class="date_create_task">
-                                    <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday
-                                        . " " . $value->Hour . ":" . $value->Min; ?>
-                                </p>
-
-                            </div>
                         </div>
-                    <?php }
-                } else { ?>
-
-                    <div id="dont_data" class="box_dont_data">
-                        <img src="./assets/image/icon/ic_no_data.svg" />
-                        <p>داده ای یافت نشد !</p>
-                        <span>هنوز تسکی تموم نشده |:</span>
                     </div>
+                <?php }
+            } else { ?>
 
-                <?php } ?>
-                <div class="clear"></div>
-            </div>
+                <div id="dont_data" class="box_dont_data">
+                    <img src="./assets/image/icon/ic_no_data.svg" />
+                    <p>داده ای یافت نشد !</p>
+                    <span>نه طراحی نه ادیت |:</span>
+                </div>
+
+            <?php } ?>
+            <div class="clear"></div>
         </div>
+    </div>
+
+    <div class="content_task_list">
+
+        <div class="content_task_header">
+            <p>تمام شده (<?php CountEndList(); ?>)</p>
+            <div class="clear"></div>
+        </div>
+
+        <div class="content_list_body">
+            <?php
+            $item = EndList();
+            if ($item) {
+                foreach ($item as $value) { ?>
+                    <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
+                        <?php switch ($value->Status) {
+                            case "8": ?>
+                                <div class="box_task_status status_accept"></div>
+                        <?php
+                                break;
+                        } ?>
+
+                        <div class="box_task_text">
+                            <p class="text_task"><?= $value->Text; ?></p>
+
+                            <p class="description_task"><?= $value->Description; ?></p>
+
+                            <?php switch ($value->Level) {
+                                case "0": ?>
+                                    <p class="date_create_task">اولویت: عادی</p>
+                                <?php break;
+                                case "1": ?>
+                                    <p class="date_create_task">اولویت: فوری</p>
+                                <?php break;
+                                case "2": ?>
+                                    <p class="date_create_task">اولویت: فوق العاده</p>
+                            <?php break;
+                            } ?>
+
+
+                            <?php $id = ($value->Maker);
+                            if ($id) {
+                                $item = GetUser($id);
+                                if ($item) {
+                                    foreach ($item as $valueUser) { ?>
+                                        <p class="date_create_task">سازنده: <?= $valueUser->Name ?></p>
+                            <?php
+                                    }
+                                }
+                            } else {
+                            } ?>
+
+
+                            <?php
+                            $id = ($value->Designer);
+                            if ($id) {
+                                $item = GetUser($id);
+                                if ($item) {
+                                    foreach ($item as $valueUser) { ?>
+                                        <p class="date_create_task">طراح: <?= $valueUser->Name ?></p>
+                            <?php
+                                    }
+                                }
+                            } else {
+                            } ?>
+                            </p>
+
+                            <?php
+                            $id = ($value->Editor);
+                            if ($id) {
+                                $item = GetUser($id);
+                                if ($item) {
+                                    foreach ($item as $valueUser) { ?>
+                                        <p class="date_create_task">ادیتور: <?= $valueUser->Name ?></p>
+
+                            <?php
+                                    }
+                                }
+                            } else {
+                            } ?>
+                            </p>
+
+                            <p class="date_create_task">
+                                <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday
+                                    . " " . $value->Hour . ":" . $value->Min; ?>
+                            </p>
+
+                        </div>
+                    </div>
+                <?php }
+            } else { ?>
+
+                <div id="dont_data" class="box_dont_data">
+                    <img src="./assets/image/icon/ic_no_data.svg" />
+                    <p>داده ای یافت نشد !</p>
+                    <span>هنوز تسکی تموم نشده |:</span>
+                </div>
+
+            <?php } ?>
+            <div class="clear"></div>
+        </div>
+    </div>
     </div>
 
     <?php require_once "footer.php"; ?>
