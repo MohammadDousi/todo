@@ -39,9 +39,7 @@ if (!isset($_SESSION['UserOk'])) {
                                     <div class="box_task_status status_create"></div>
                                 <?php
                                     break;
-                                case "9":
-                                ?>
-                                    <div class="box_task_status status_edit"></div>
+                                case "9": ?><div class="box_task_status status_edit"></div>
                                 <?php
                                     break;
                                 case "10": ?>
@@ -52,76 +50,29 @@ if (!isset($_SESSION['UserOk'])) {
 
                             <div class="box_task_text">
                                 <p class="text_task"><?= $value->Text; ?></p>
-                                <p class="description_task"><?= $value->Description; ?></p>
 
-                                <?php switch ($value->Level) {
-                                    case "0": ?>
-                                        <p class="date_create_task">اولویت: عادی</p>
+                                <p class="description_task"><?= ReadMore($value->Description); ?></p>
+
+                                <?php switch ($value->Status) {
+                                    case "3": ?>
+                                        <p class="status_task status_gray">وضعیت: <span></span></p>
+                                        <p class="status_task status_gray500">تازه وارد</p>
                                     <?php break;
-                                    case "1": ?>
-                                        <p class="date_create_task">اولویت: فوری</p>
+                                    case "9": ?>
+                                        <p class="status_task status_gray">وضعیت:</p>
+                                        <p class="status_task status_blue">نیاز به ویرایش</p>
                                     <?php break;
-                                    case "2": ?>
-                                        <p class="date_create_task">اولویت: فوق العاده</p>
+                                    case "10": ?>
+                                        <p class="status_task status_gray">وضعیت:</p>
+                                        <p class="status_task red">خطا، نیاز به هماهنگی بیشتر</p>
                                 <?php break;
                                 } ?>
-
-
-                                <?php $id = ($value->Maker);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">سازنده: <?= $valueUser->Name ?></p>
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-
-
-                                <?php
-                                $id = ($value->Designer);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">طراح: <?= $valueUser->Name ?></p>
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-                                </p>
-
-                                <?php
-                                $id = ($value->Editor);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">ادیتور: <?= $valueUser->Name ?></p>
-
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-                                </p>
 
                                 <p class="date_create_task">
                                     <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday
                                         . " " . $value->Hour . ":" . $value->Min; ?>
                                 </p>
 
-                                <p class="date_create_task status_blue">
-                                    <?php switch ($value->Status) {
-                                        case 10: ?> وجود خطا ، نیاز به هماهنگی بیشتر
-                                        <?php break;
-                                        case 9: ?> نیاز به ویرایش
-                                    <?php break;
-                                    } ?>
-                                </p>
                             </div>
 
                         </div>
@@ -179,7 +130,7 @@ if (!isset($_SESSION['UserOk'])) {
 
                                 <?php switch ($value->Status) {
                                     case "4": ?>
-                                        <p class="status_task status_gray">وضعیت:</p>
+                                        <p class="status_task status_gray">وضعیت: <span></span></p>
                                         <p class="status_task status_amber">در حال طراحی</p>
                                     <?php break;
                                     case "5": ?>
@@ -202,7 +153,9 @@ if (!isset($_SESSION['UserOk'])) {
                                 </p>
 
                             </div>
+
                         </div>
+
                     <?php }
                 } else { ?>
 
@@ -232,7 +185,7 @@ if (!isset($_SESSION['UserOk'])) {
                         <div class="box_task" id="<?= $value->Id; ?>" onclick="GoToEdit(this.id)">
                             <?php switch ($value->Status) {
                                 case "8": ?>
-                                    <div class="box_task_status status_accept"></div>
+                                    <div class="box_task_status status_end"></div>
                             <?php
                                     break;
                             } ?>
@@ -240,62 +193,12 @@ if (!isset($_SESSION['UserOk'])) {
                             <div class="box_task_text">
                                 <p class="text_task"><?= $value->Text; ?></p>
 
-                                <p class="description_task"><?= $value->Description; ?></p>
+                                <p class="description_task"><?= ReadMore($value->Description); ?></p>
 
-                                <?php switch ($value->Level) {
-                                    case "0": ?>
-                                        <p class="date_create_task">اولویت: عادی</p>
-                                    <?php break;
-                                    case "1": ?>
-                                        <p class="date_create_task">اولویت: فوری</p>
-                                    <?php break;
-                                    case "2": ?>
-                                        <p class="date_create_task">اولویت: فوق العاده</p>
-                                <?php break;
-                                } ?>
-
-
-                                <?php $id = ($value->Maker);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">سازنده: <?= $valueUser->Name ?></p>
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-
-
-                                <?php
-                                $id = ($value->Designer);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">طراح: <?= $valueUser->Name ?></p>
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-                                </p>
-
-                                <?php
-                                $id = ($value->Editor);
-                                if ($id) {
-                                    $item = GetUser($id);
-                                    if ($item) {
-                                        foreach ($item as $valueUser) { ?>
-                                            <p class="date_create_task">ادیتور: <?= $valueUser->Name ?></p>
-
-                                <?php
-                                        }
-                                    }
-                                } else {
-                                } ?>
-                                </p>
+                                <?php if ($value->Status == 8) { ?>
+                                    <p class="status_task status_gray">وضعیت: <span></span></p>
+                                    <p class="status_task status_gray500">تمام شده</p>
+                                <?php } ?>
 
                                 <p class="date_create_task">
                                     <?= $value->Year . "/" . $value->Month . "/" . $value->Day . " " . $value->Nday
@@ -304,6 +207,7 @@ if (!isset($_SESSION['UserOk'])) {
 
                             </div>
                         </div>
+                        
                     <?php }
                 } else { ?>
 
